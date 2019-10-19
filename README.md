@@ -5,6 +5,8 @@
 
 #### You can download the file directly or copy and paste the contents into a good editor and save it yourself
 
+#### [Download Current Version](https://github.com/HootzMcToke/NoitaSaveTool/releases)
+
 ** Saves for the steam version of Noita are located in %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita
 
 ** Note - This is setup for steam, you can change "start steam://rungameid/881100" to whatever you're shortcut is ** 
