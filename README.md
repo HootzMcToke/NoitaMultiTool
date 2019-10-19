@@ -3,7 +3,9 @@
 
 #### This tool is for windows and is currently configured for the steam version of Noita, if you have a non-steam version you can see the notes below.
 
-** Saves forthe steam version of Noita are located in %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita
+#### You can download the file directly or copy and paste the contents into a good editor and save it yourself
+
+** Saves for the steam version of Noita are located in %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita
 
 ** Note - This is setup for steam, you can change "start steam://rungameid/881100" to whatever you're shortcut is ** 
 
