@@ -29,19 +29,18 @@ echo                   `+ssydmh:
 echo                   `oydmh:                                                           
 echo                   `+mh:                                                             
 echo                     .  
-echo                                   â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-echo                                   â•‘            Noita Save Tool             â•‘
-echo                                   â•‘             by HootzMcToke             â•‘
-echo                                   â•‘         The time is currently:         â•‘
-echo                                   â•‘		%time%		   â•‘
-echo                                   â•‘         Please select an option        â•‘
-echo                                   â• â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•£
-echo                                   â•‘            1. Backup a Save            â•‘
-echo                                   â•‘            2. Restore a Save           â•‘
-echo                                   â•‘            3. Delete Saves             â•‘
-echo                                   â•‘            4. Play Game                â•‘
-echo                                   â•‘            5. Quit                     â•‘
-echo                                   â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+echo                                   ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo                                   º     Noita Save Tool by HootzMcToke     º
+echo                                   º         The time is currently:         º
+echo                                   º		%time%		   º
+echo                                   º         Please select an option        º
+echo                                   ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+echo                                   º            1. Backup a Save            º
+echo                                   º            2. Restore a Save           º
+echo                                   º            3. Delete Saves             º
+echo                                   º            4. Play Game                º
+echo                                   º            5. Quit                     º
+echo                                   ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
 REM echo on 
 REM Remove **ECHO ON** Line before release!!
 CHOICE /N /C:12345 >NUL
