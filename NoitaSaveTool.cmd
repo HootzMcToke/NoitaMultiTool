@@ -29,18 +29,19 @@ echo                   `+ssydmh:
 echo                   `oydmh:                                                           
 echo                   `+mh:                                                             
 echo                     .  
-echo                                   ╔════════════════════════════════════════╗
-echo                                   ║     Noita Save Tool by HootzMcToke     ║
-echo                                   ║         The time is currently:         ║
-echo                                   ║		%time%		   ║
-echo                                   ║         Please select an option        ║
-echo                                   ╠════════════════════════════════════════╣
-echo                                   ║            1. Backup a Save            ║
-echo                                   ║            2. Restore a Save           ║
-echo                                   ║            3. Delete Saves             ║
-echo                                   ║            4. Play Game                ║
-echo                                   ║            5. Quit                     ║
-echo                                   ╚════════════════════════════════════════╝
+echo                                   ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+echo                                   º            Noita Save Tool             º
+echo                                   º             by HootzMcToke             º
+echo                                   º         The time is currently:         º
+echo                                   º		%time%		   º
+echo                                   º         Please select an option        º
+echo                                   ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+echo                                   º            1. Backup a Save            º
+echo                                   º            2. Restore a Save           º
+echo                                   º            3. Delete Saves             º
+echo                                   º            4. Play Game                º
+echo                                   º            5. Quit                     º
+echo                                   ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
 REM echo on 
 REM Remove **ECHO ON** Line before release!!
 CHOICE /N /C:12345 >NUL
