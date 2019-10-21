@@ -53,7 +53,6 @@ IF ERRORLEVEL ==1 GOTO backupsave
 :backupsave
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\SaveBackup\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\SaveBackup\"
 Xcopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\SaveBackup\save00" /s /i /E /q /y
-Xcopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save_shared" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\SaveBackup\save_shared" /s /i /E /q /y
 ECHO Backup Complete
 GOTO startgame
 
@@ -74,7 +73,6 @@ GOTO savetool
 :removecurrent
 cls
 ECHO Removing current save
-rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save_shared"
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00"
 ECHO Removal Complete
 timeout 1 >NUL
@@ -92,7 +90,6 @@ goto savetool
 cls
 ECHO Removing all saves 
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\SaveBackup"
-rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save_shared"
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00"
 ECHO All saves removed going to main menu 
 timeout 1 >NUL
@@ -143,3 +140,6 @@ REM https://stackoverflow.com/questions/5837418/how-do-you-get-the-string-length
 REM https://steamcommunity.com/sharedfiles/filedetails/?id=1889553978
 REM https://stackoverflow.com/questions/12572718/how-to-change-text-color-of-cmd-with-windows-batch-script-every-1-second
 REM http://waynes-world-it.blogspot.com
+REM https://jrgraphix.net/r/Unicode/2500-257F
+REM http://steve-jansen.github.io/guides/windows-batch-scripting/part-1-getting-started.html
+REM https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/commands-by-server-role
