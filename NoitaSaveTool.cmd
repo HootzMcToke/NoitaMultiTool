@@ -65,7 +65,7 @@ echo			บ           6. Quit                      บ
 echo			ศออออออออออออออออออออออออออออออออออออออออผ
 REM ECHO ON
 REM remove **ECHO ON** Line before release
-CHOICE /N /C:12345 >NUL
+CHOICE /N /C:123456 >NUL
 IF ERRORLEVEL ==6 GOTO close
 IF ERRORLEVEL ==5 GOTO welcome
 IF ERRORLEVEL ==4 GOTO playnoita
@@ -77,7 +77,7 @@ IF ERRORLEVEL ==1 GOTO B001
 cls
 ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\"
-Xcopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /s /i /E /q /y
+robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /e /xd "stats" >NUL
 ECHO Backup Complete - Located in Folder save00A
 pause
 GOTO backupmain
@@ -86,7 +86,7 @@ GOTO backupmain
 cls
 ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\"
-Xcopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /s /i /E /q /y
+robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /e /xd "stats" >NUL
 ECHO Backup Complete - Located in Folder save00B
 pause
 GOTO backupmain
@@ -95,7 +95,7 @@ GOTO backupmain
 cls
 ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\"
-Xcopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /s /i /E /q /y
+robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" >NUL
 ECHO Backup Complete - Located in Folder save00C
 pause
 GOTO backupmain
@@ -127,19 +127,19 @@ IF ERRORLEVEL ==1 GOTO R001
 :R001
 cls
 ECHO Restoring Save From Slot 1
-Xcopy /q/y/E "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\*" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00"
+robocopy %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\ %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00 /e >NUL
 ECHO Backup 001 restored!
 GOTO startgame
 :R002
 cls
 ECHO Restoring Save From Slot 2
-Xcopy /q/y/E "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\*" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00"
+robocopy %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\ %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00 /e >NUL
 ECHO Backup 002 restored!
 GOTO startgame
 :R003
 cls
 ECHO Restoring Save From Slot 3
-Xcopy /q/y/E "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\*" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00"
+robocopy %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\ %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00 /e >NUL
 ECHO Backup 003 restored!
 GOTO startgame
 
