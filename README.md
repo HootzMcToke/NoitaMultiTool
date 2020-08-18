@@ -7,6 +7,8 @@
 
 #### [Download Current Version](https://github.com/HootzMcToke/NoitaSaveTool/releases)
 
+** Currenlty backs up more than it needs to, ill fix that at some point **
+
 ** I've now added menus for each page, aswell as the ability to backup 3 saves **
 
 ** Saves for the steam version of Noita are located in %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita
