@@ -27,19 +27,19 @@ echo                   `+ssydmh:
 echo                   `oydmh:                                                           
 echo                   `+mh:                                                             
 echo                     .  
-echo			+----------------------------------------+
-echo			ฆ     noita save tool by hootzmctoke     ฆ
-echo			ฆ         the time is currently:         ฆ
-echo			ฆ		%time%		 ฆ
-echo			ฆ         please select an option        ฆ
-echo			ฆ         last updated - 08-18-20        ฆ
-echo			ฆ----------------------------------------ฆ
-echo			ฆ            1. Backup a save            ฆ
-echo			ฆ            2. Restore a save           ฆ
-echo			ฆ            3. Delete saves             ฆ
-echo			ฆ            4. Play game                ฆ
-echo			ฆ            5. Quit                     ฆ
-echo			+----------------------------------------+
+echo			ษออออออออออออออออออออออออออออออออออออออออป
+echo			บ     noita save tool by hootzmctoke     บ
+echo			บ         the time is currently:         บ
+echo			บ		%time%		 บ
+echo			บ         please select an option        บ
+echo			บ         last updated - 08-18-20        บ
+echo			ฬออออออออออออออออออออออออออออออออออออออออน
+echo			บ            1. Backup a save            บ
+echo			บ            2. Restore a save           บ
+echo			บ            3. Delete saves             บ
+echo			บ            4. Play game                บ
+echo			บ            5. Quit                     บ
+echo			ศออออออออออออออออออออออออออออออออออออออออผ
 REM ECHO ON
 REM REMOVE **ECHO ON** LINE BEFORE RELEASE!!
 choice /n /c:12345 >nul
@@ -52,18 +52,18 @@ if errorlevel ==1 goto backupmain
 :backupmain
 cls
 @ECHO off
-echo			+----------------------------------------+
-echo			ฆ	  Noita Save Backup Tool	 ฆ
-echo			ฆ	Please select option below       ฆ
-echo			ฆ----------------------------------------ฆ
-echo			ฆ           1. Backup to Slot 1          ฆ
-echo			ฆ           2. Backup to Slot 2          ฆ
-echo			ฆ           3. Backup to Slot 3          ฆ
-echo			ฆ           4. Overwrite All	         ฆ
-echo			ฆ           5. Play Game                 ฆ
-echo			ฆ           6. Main Menu                 ฆ
-echo			ฆ           7. Quit                      ฆ
-echo			+----------------------------------------+
+echo			ษออออออออออออออออออออออออออออออออออออออออป
+echo			บ	  Noita Save Backup Tool	 บ
+echo			บ	Please select option below       บ
+echo			ฬออออออออออออออออออออออออออออออออออออออออน
+echo			บ           1. Backup to Slot 1          บ
+echo			บ           2. Backup to Slot 2          บ
+echo			บ           3. Backup to Slot 3          บ
+echo			บ           4. Overwrite All	         บ
+echo			บ           5. Play Game                 บ
+echo			บ           6. Main Menu                 บ
+echo			บ           7. Quit                      บ
+echo			ศออออออออออออออออออออออออออออออออออออออออผ
 REM ECHO ON
 REM remove **ECHO ON** Line before release
 CHOICE /N /C:1234567 >NUL
@@ -128,17 +128,17 @@ GOTO backupmain
 :restore
 cls
 @ECHO off
-echo			+----------------------------------------+
-echo			ฆ	  Noita Save Restore Tool	 ฆ
-echo			ฆ	Please select option below       ฆ
-echo			ฆ----------------------------------------ฆ
-echo			ฆ          1. Restore From Slot 1        ฆ
-echo			ฆ          2. Restore From Slot 2        ฆ
-echo			ฆ          3. Restore From Slot 3        ฆ
-echo			ฆ          4. Play Game                  ฆ
-echo			ฆ          5. Main Menu                  ฆ
-echo			ฆ          6. Quit                       ฆ
-echo			+----------------------------------------+
+echo			ษออออออออออออออออออออออออออออออออออออออออป
+echo			บ	  Noita Save Restore Tool	 บ
+echo			บ	Please select option below       บ
+echo			ฬออออออออออออออออออออออออออออออออออออออออน
+echo			บ          1. Restore From Slot 1        บ
+echo			บ          2. Restore From Slot 2        บ
+echo			บ          3. Restore From Slot 3        บ
+echo			บ          4. Play Game                  บ
+echo			บ          5. Main Menu                  บ
+echo			บ          6. Quit                       บ
+echo			ศออออออออออออออออออออออออออออออออออออออออผ
 REM ECHO ON
 REM remove **ECHO ON** Line before release
 CHOICE /N /C:123456 >NUL
@@ -171,18 +171,18 @@ GOTO startgame
 :savetool
 cls
 @ECHO off
-echo			+----------------------------------------+
-echo			ฆ	  Noita Save Remove Tool	 ฆ
-echo			ฆ	Please select option below       ฆ
-echo			ฆ----------------------------------------ฆ
-echo			ฆ          1. Delete Save 001		 ฆ
-echo			ฆ          2. Delete Save 002		 ฆ
-echo			ฆ          3. Delete Save 003		 ฆ
-echo			ฆ          4. Delete All Backups	 ฆ
-echo			ฆ          5. Play Game                  ฆ
-echo			ฆ          6. Main Menu                  ฆ
-echo			ฆ          7. Quit                       ฆ
-echo			+----------------------------------------+
+echo			ษออออออออออออออออออออออออออออออออออออออออป
+echo			บ	  Noita Save Remove Tool	 บ
+echo			บ	Please select option below       บ
+echo			ฬออออออออออออออออออออออออออออออออออออออออน
+echo			บ          1. Delete Save 001		 บ
+echo			บ          2. Delete Save 002		 บ
+echo			บ          3. Delete Save 003		 บ
+echo			บ          4. Delete All Backups	 บ
+echo			บ          5. Play Game                  บ
+echo			บ          6. Main Menu                  บ
+echo			บ          7. Quit                       บ
+echo			ศออออออออออออออออออออออออออออออออออออออออผ
 REM ECHO ON
 REM remove **ECHO ON** Line before release
 CHOICE /N /C:1234567 >NUL
