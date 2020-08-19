@@ -27,19 +27,19 @@ echo                   `+ssydmh:
 echo                   `oydmh:                                                           
 echo                   `+mh:                                                             
 echo                     .  
-echo			ษออออออออออออออออออออออออออออออออออออออออป
-echo			บ     noita save tool by hootzmctoke     บ
-echo			บ         the time is currently:         บ
-echo			บ		%time%		 บ
-echo			บ         please select an option        บ
-echo			บ         last updated - 08-18-20        บ
-echo			ฬออออออออออออออออออออออออออออออออออออออออน
-echo			บ            1. Backup a save            บ
-echo			บ            2. Restore a save           บ
-echo			บ            3. Delete saves             บ
-echo			บ            4. Play game                บ
-echo			บ            5. Quit                     บ
-echo			ศออออออออออออออออออออออออออออออออออออออออผ
+echo			+----------------------------------------+
+echo			ฆ     noita save tool by hootzmctoke     ฆ
+echo			ฆ         the time is currently:         ฆ
+echo			ฆ		%time%		 ฆ
+echo			ฆ         please select an option        ฆ
+echo			ฆ         last updated - 08-18-20        ฆ
+echo			ฆ----------------------------------------ฆ
+echo			ฆ            1. Backup a save            ฆ
+echo			ฆ            2. Restore a save           ฆ
+echo			ฆ            3. Delete saves             ฆ
+echo			ฆ            4. Play game                ฆ
+echo			ฆ            5. Quit                     ฆ
+echo			+----------------------------------------+
 REM ECHO ON
 REM REMOVE **ECHO ON** LINE BEFORE RELEASE!!
 choice /n /c:12345 >nul
@@ -52,26 +52,29 @@ if errorlevel ==1 goto backupmain
 :backupmain
 cls
 @ECHO off
-echo			ษออออออออออออออออออออออออออออออออออออออออป
-echo			บ	  Noita Save Backup Tool	 บ
-echo			บ	Please select option below       บ
-echo			ฬออออออออออออออออออออออออออออออออออออออออน
-echo			บ           1. Backup to Slot 1          บ
-echo			บ           2. Backup to Slot 2          บ
-echo			บ           3. Backup to Slot 3          บ
-echo			บ           4. Play Game                 บ
-echo			บ           5. Main Menu                 บ
-echo			บ           6. Quit                      บ
-echo			ศออออออออออออออออออออออออออออออออออออออออผ
+echo			+----------------------------------------+
+echo			ฆ	  Noita Save Backup Tool	 ฆ
+echo			ฆ	Please select option below       ฆ
+echo			ฆ----------------------------------------ฆ
+echo			ฆ           1. Backup to Slot 1          ฆ
+echo			ฆ           2. Backup to Slot 2          ฆ
+echo			ฆ           3. Backup to Slot 3          ฆ
+echo			ฆ           4. Overwrite All	         ฆ
+echo			ฆ           5. Play Game                 ฆ
+echo			ฆ           6. Main Menu                 ฆ
+echo			ฆ           7. Quit                      ฆ
+echo			+----------------------------------------+
 REM ECHO ON
 REM remove **ECHO ON** Line before release
-CHOICE /N /C:123456 >NUL
-IF ERRORLEVEL ==6 GOTO close
-IF ERRORLEVEL ==5 GOTO welcome
-IF ERRORLEVEL ==4 GOTO playnoita
+CHOICE /N /C:1234567 >NUL
+IF ERRORLEVEL ==7 GOTO close
+IF ERRORLEVEL ==6 GOTO welcome
+IF ERRORLEVEL ==5 GOTO playnoita
+IF ERRORLEVEL ==4 GOTO BALL
 IF ERRORLEVEL ==3 GOTO B003
 IF ERRORLEVEL ==2 GOTO B002
 IF ERRORLEVEL ==1 GOTO B001
+GOTO backupmain
 
 :B001
 cls
@@ -100,20 +103,42 @@ ECHO Backup Complete - Located in Folder save00C
 pause
 GOTO backupmain
 
+:BALL
+cls
+echo Are you sure you wish to overwrite all slots with current game data?(Y/N)?
+CHOICE /N /C NY >NUL
+IF ERRORLEVEL 2 GOTO BALL0
+IF ERRORLEVEL 1 GOTO backupmain
+goto backupmain
+
+:BALL0
+cls
+ECHO Overwriting all Slots with current Game Save Data
+if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\"
+robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /e /xd "stats" >NUL
+if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\"
+robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /e /xd "stats" >NUL
+if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\"
+robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" >NUL
+ECHO Overwrite Complete - All Slots are based on Last Game Save!
+pause 
+GOTO backupmain
+
+
 :restore
 cls
 @ECHO off
-echo			ษออออออออออออออออออออออออออออออออออออออออป
-echo			บ	  Noita Save Restore Tool	 บ
-echo			บ	Please select option below       บ
-echo			ฬออออออออออออออออออออออออออออออออออออออออน
-echo			บ          1. Restore From Slot 1        บ
-echo			บ          2. Restore From Slot 2        บ
-echo			บ          3. Restore From Slot 3        บ
-echo			บ          4. Play Game                  บ
-echo			บ          5. Main Menu                  บ
-echo			บ          6. Quit                       บ
-echo			ศออออออออออออออออออออออออออออออออออออออออผ
+echo			+----------------------------------------+
+echo			ฆ	  Noita Save Restore Tool	 ฆ
+echo			ฆ	Please select option below       ฆ
+echo			ฆ----------------------------------------ฆ
+echo			ฆ          1. Restore From Slot 1        ฆ
+echo			ฆ          2. Restore From Slot 2        ฆ
+echo			ฆ          3. Restore From Slot 3        ฆ
+echo			ฆ          4. Play Game                  ฆ
+echo			ฆ          5. Main Menu                  ฆ
+echo			ฆ          6. Quit                       ฆ
+echo			+----------------------------------------+
 REM ECHO ON
 REM remove **ECHO ON** Line before release
 CHOICE /N /C:123456 >NUL
@@ -146,18 +171,18 @@ GOTO startgame
 :savetool
 cls
 @ECHO off
-echo			ษออออออออออออออออออออออออออออออออออออออออป
-echo			บ	  Noita Save Remove Tool	 บ
-echo			บ	Please select option below       บ
-echo			ฬออออออออออออออออออออออออออออออออออออออออน
-echo			บ          1. Delete Save 001		 บ
-echo			บ          2. Delete Save 002		 บ
-echo			บ          3. Delete Save 003		 บ
-echo			บ          4. Delete All Backups	 บ
-echo			บ          5. Play Game                  บ
-echo			บ          6. Main Menu                  บ
-echo			บ          7. Quit                       บ
-echo			ศออออออออออออออออออออออออออออออออออออออออผ
+echo			+----------------------------------------+
+echo			ฆ	  Noita Save Remove Tool	 ฆ
+echo			ฆ	Please select option below       ฆ
+echo			ฆ----------------------------------------ฆ
+echo			ฆ          1. Delete Save 001		 ฆ
+echo			ฆ          2. Delete Save 002		 ฆ
+echo			ฆ          3. Delete Save 003		 ฆ
+echo			ฆ          4. Delete All Backups	 ฆ
+echo			ฆ          5. Play Game                  ฆ
+echo			ฆ          6. Main Menu                  ฆ
+echo			ฆ          7. Quit                       ฆ
+echo			+----------------------------------------+
 REM ECHO ON
 REM remove **ECHO ON** Line before release
 CHOICE /N /C:1234567 >NUL
@@ -256,4 +281,4 @@ REM https://stackoverflow.com/questions/12572718/how-to-change-text-color-of-cmd
 REM http://waynes-world-it.blogspot.com
 REM https://jrgraphix.net/r/Unicode/2500-257F
 REM http://steve-jansen.github.io/guides/windows-batch-scripting/part-1-getting-started.html
-REM https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/commands-by-server-role
+REM https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/commands-by-server-role:welcome
