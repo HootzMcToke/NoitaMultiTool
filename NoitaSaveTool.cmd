@@ -382,3 +382,4 @@ REM https://docs.microsoft.com/en-us/windows-server/administration/windows-comma
 REM https://superuser.com/questions/700458/looking-to-create-a-batch-file-capable-of-editing-a-line-or-word-in-a-text-fil
 REM https://stackoverflow.com/questions/34090258/find-steam-games-folder
 REM https://github.com/Dregu/NoitaScripts
+REM https://noita-tools.herokuapp.com/
