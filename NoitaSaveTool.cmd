@@ -42,7 +42,8 @@ echo			บ            5. Quit                     บ
 echo			ศออออออออออออออออออออออออออออออออออออออออผ
 REM ECHO ON
 REM REMOVE **ECHO ON** LINE BEFORE RELEASE!!
-choice /n /c:12345 >nul
+choice /n /c:123456 >nul
+if errorlevel ==6 goto seededit
 if errorlevel ==5 goto close
 if errorlevel ==4 goto playnoita
 if errorlevel ==3 goto savetool
@@ -253,6 +254,43 @@ goto GameMonitor
 echo %EXE% is not running
 goto welcome
 
+
+:seededit
+cls
+@ECHO off
+echo			ษออออออออออออออออออออออออออออออออออออออออป
+echo			บ	  Noita Seed Edit Tool	 	 บ
+echo			บ	Please select option below       บ
+echo			ฬออออออออออออออออออออออออออออออออออออออออน
+echo			บ           1. Random Seed     	         บ
+echo			บ           2. Set Seed        		 บ
+echo			บ           3. See Current Seed          บ
+echo			บ           4. Play Game	         บ
+echo			บ           5. Main Menu                 บ
+echo			บ           6. Quit                      บ
+echo			ศออออออออออออออออออออออออออออออออออออออออผ
+CHOICE /N /C:123456 >nul
+IF ERRORLEVEL 6 GOTO close
+IF ERRORLEVEL 5 GOTO welcome
+IF ERRORLEVEL 4 GOTO playnoita
+IF ERRORLEVEL 3 GOTO SeeSeed
+IF ERRORLEVEL 2 GOTO SetSeed
+IF ERRORLEVEL 1 GOTO RandomSeed
+
+:SeeSeed
+ECHO See Seed Coming Soon
+pause
+goto welcome
+
+:SetSeed
+ECHO Set Seed Coming Soon
+pause
+goto welcome
+
+:RandomSeed
+ECHO Random Seed (Reset) Coming Soon 
+pause
+goto welcome
 
 :quit
 echo off
