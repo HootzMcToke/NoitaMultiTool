@@ -1,5 +1,5 @@
-:welcome
 ECHO off
+:welcome
 cls
 echo      ``.:y.  `...`                                                                  
 echo   `...--/n/ ..----.`                             :-         `:                      
@@ -37,22 +37,20 @@ echo			ฬออออออออออออออออออออออออออออออออออออออออน
 echo			บ            1. Backup a save            บ
 echo			บ            2. Restore a save           บ
 echo			บ            3. Delete saves             บ
-echo			บ            4. Play game                บ
-echo			บ            5. Quit                     บ
+echo			บ            4. Seed Editor              บ
+echo			บ            5. Play game                บ
+echo			บ            6. Quit                     บ
 echo			ศออออออออออออออออออออออออออออออออออออออออผ
-REM ECHO ON
-REM REMOVE **ECHO ON** LINE BEFORE RELEASE!!
 choice /n /c:123456 >nul
-if errorlevel ==6 goto seededit
-if errorlevel ==5 goto close
-if errorlevel ==4 goto playnoita
+if errorlevel ==6 goto close
+if errorlevel ==5 goto playnoita
+if errorlevel ==4 goto seededit
 if errorlevel ==3 goto savetool
 if errorlevel ==2 goto restore
 if errorlevel ==1 goto backupmain
 
 :backupmain
 cls
-@ECHO off
 echo			ษออออออออออออออออออออออออออออออออออออออออป
 echo			บ	  Noita Save Backup Tool	 บ
 echo			บ	Please select option below       บ
@@ -65,8 +63,6 @@ echo			บ           5. Play Game                 บ
 echo			บ           6. Main Menu                 บ
 echo			บ           7. Quit                      บ
 echo			ศออออออออออออออออออออออออออออออออออออออออผ
-REM ECHO ON
-REM remove **ECHO ON** Line before release
 CHOICE /N /C:1234567 >NUL
 IF ERRORLEVEL ==7 GOTO close
 IF ERRORLEVEL ==6 GOTO welcome
@@ -128,7 +124,6 @@ GOTO backupmain
 
 :restore
 cls
-@ECHO off
 echo			ษออออออออออออออออออออออออออออออออออออออออป
 echo			บ	  Noita Save Restore Tool	 บ
 echo			บ	Please select option below       บ
@@ -140,8 +135,6 @@ echo			บ          4. Play Game                  บ
 echo			บ          5. Main Menu                  บ
 echo			บ          6. Quit                       บ
 echo			ศออออออออออออออออออออออออออออออออออออออออผ
-REM ECHO ON
-REM remove **ECHO ON** Line before release
 CHOICE /N /C:123456 >NUL
 IF ERRORLEVEL ==6 GOTO close
 IF ERRORLEVEL ==5 GOTO welcome
@@ -171,7 +164,6 @@ GOTO startgame
 
 :savetool
 cls
-@ECHO off
 echo			ษออออออออออออออออออออออออออออออออออออออออป
 echo			บ	  Noita Save Remove Tool	 บ
 echo			บ	Please select option below       บ
@@ -184,8 +176,6 @@ echo			บ          5. Play Game                  บ
 echo			บ          6. Main Menu                  บ
 echo			บ          7. Quit                       บ
 echo			ศออออออออออออออออออออออออออออออออออออออออผ
-REM ECHO ON
-REM remove **ECHO ON** Line before release
 CHOICE /N /C:1234567 >NUL
 IF ERRORLEVEL ==7 GOTO close
 IF ERRORLEVEL ==6 GOTO welcome
@@ -257,7 +247,6 @@ goto welcome
 
 :seededit
 cls
-@ECHO off
 echo			ษออออออออออออออออออออออออออออออออออออออออป
 echo			บ	  Noita Seed Edit Tool	 	 บ
 echo			บ	Please select option below       บ
@@ -293,7 +282,6 @@ pause
 goto welcome
 
 :quit
-echo off
 cls
 echo Do you want to quit(Y/N)?
 CHOICE /N /C NY >NUL
@@ -301,7 +289,6 @@ IF ERRORLEVEL 2 GOTO close
 IF ERRORLEVEL 1 GOTO welcome
 
 :close
-echo off
 cls
 echo See you soon! Press Any Key
 timeout 3 >NUL
