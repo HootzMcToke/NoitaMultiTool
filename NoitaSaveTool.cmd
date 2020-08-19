@@ -381,3 +381,4 @@ REM http://steve-jansen.github.io/guides/windows-batch-scripting/part-1-getting-
 REM https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/commands-by-server-role:welcome
 REM https://superuser.com/questions/700458/looking-to-create-a-batch-file-capable-of-editing-a-line-or-word-in-a-text-fil
 REM https://stackoverflow.com/questions/34090258/find-steam-games-folder
+REM https://github.com/Dregu/NoitaScripts
