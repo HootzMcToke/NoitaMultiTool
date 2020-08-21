@@ -1,4 +1,4 @@
-# HootzMcToke Presents: Noita Save Game Tool
+# HootzMcToke Presents: Noita Save Game Tool Version 2
 
 ### Now with 3 times the saving!
 
