@@ -1,32 +1,45 @@
 ECHO off
+
+
+REM - Settings // Varriables // Stuff
+mode con:cols=82 lines=40
+setlocal EnableDelayedExpansion
+
+REM - To use logo define !logo!
+set logo=                                                             ^
+
+     ∞≤     ≤≤∞                                                                   ^
+     ≤≤≤≤≤≤  ≤≤≤≤≤≤                                                               ^
+   ≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤                         ≤≤≤≤       ≤≤≤                      ^
+   ≤≤≤≤≤≤≤≤≤≤  ≤≤≤≤≤≤≤≤                      ≤≤≤≤≤     ≤≤≤≤≤                      ^
+   ≤≤≤≤≤≤≤≤      ≤≤≤≤≤≤≤≤                      ≤≤≤≤   ≤≤≤≤≤≤                      ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤≤                    ≤     ≤≤≤≤≤≤                      ^
+   ≤≤≤≤≤≤≤≤         ≤≤≤≤≤≤≤∞                    ∞≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤±                ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤          ≤         ≤  ≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤     ≤           ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤      ≤≤≤≤≤≤      ≤≤≤≤     ≤≤≤≤≤≤        ≤≤≤≤≤≤≤       ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤≤≤≤≤≤≤≤   ≤≤≤≤≤≤≤   ≤≤≤≤≤≤      ≤≤≤≤≤≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤ ≤≤≤≤≤≤≤≤  ≤≤≤≤≤≤   ≤≤≤≤≤≤    ≤≤≤≤  ≤≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤   ≤≤≤≤≤≤  ≤≤≤≤≤≤   ≤≤≤≤≤≤   ≤≤≤≤    ≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤    ≤≤≤≤≤≤ ≤≤≤≤≤≤   ≤≤≤≤≤≤  ≤≤≤≤     ≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤    ≤≤≤≤≤≤ ≤≤≤≤≤≤   ≤≤≤≤≤≤ ≤≤≤≤≤     ≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤    ≤≤≤≤≤≤ ≤≤≤≤≤≤   ≤≤≤≤≤≤ ≤≤≤≤≤     ≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤     ≤≤≤≤≤ ≤≤≤≤≤≤   ≤≤≤≤≤≤ ≤≤≤≤≤≤    ≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤     ≤≤≤≤  ≤≤≤≤≤≤   ≤≤≤≤≤≤ ≤≤≤≤≤≤≤   ≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤≤≤  ≤≤≤≤≤  ≤≤≤≤≤≤   ≤≤≤≤≤≤  ≤≤≤≤≤≤  ≤≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤ ∞≤≤≤≤≤≤≤≤≤≤≤±    ≤≤≤≤≤≤   ≤≤≤≤≤≤   ≤≤≤≤≤≤≤≤≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤        ≤≤≤≤≤≤≤≤    ≤≤≤≤≤≤≤≤     ≤≤≤≤≤≤≤  ≤≤≤≤≤≤≤     ≤≤≤≤≤ ≤≤≤≤≤≤≤    ^
+   ≤≤≤≤≤≤≤≤≤≤      ≤≤≤≤≤≤≤≤        ≤≤        ≤≤≤≤≤≤≤≤ ≤≤≤≤≤≤≤≤     ≤     ≤≤≤≤≤≤   ^
+                ≤≤≤≤≤≤                                                            ^     
+
+				
+REM - END SETTINGS
+
+
+
 :welcome
+color 02
 cls
-echo      ``.:y.  `...`                                                                  
-echo   `...--/n/ ..----.`                             :-         `:                      
-echo  `.---:-:y/so:------.`                         `.+s.      `.-hy                     
-echo   ----:::ymd/`.-------.`                      `.--:/.   `.--:dy                     
-echo   ---:::/no`    .-:-----.`                      .odmo   .--::dy                     
-echo   ---:///n/       .-:::::/o+.                    +s-`   .--::ys                     
-echo   --:://+n/        `-:::/smo`                     .-::::---::::::/sh-               
-echo   -::://+n/       `--::::sn`         `.`        `-.+ssss---::hdsssy+`    `          
-echo   -::://+n/       `---:::sn`     ``...-/      `..::    `---::dy        `.--.```     
-echo   -::///+n/       `-:::::sn` ``.-s/-------.  .----:o/   ---::dy      `-:--------/:` 
-echo   :://+/+n/       `-:::/:sn`.--::dy`.----:s.  ---::hd   ---:/dy    `/hds+/---::sms. 
-echo   :///+/+n/       `-::://sn`---::ds  .--::/h- ---//hd   --://dy  `.+mh:` .---//ym   
-echo   :///++on/       `:::://sn`--::/ds  `-:::/oy`--://hd   -:://dy `-:hd.    .--//ym   
-echo   ://+++on/       `:/:///yn`-:://ds   `:://on:-::/+hd   -:://dy`-:/hh     -:://ym   
-echo   :+++o+on/       `:///++yn.://++ms    -//+on:-//++hd   ://++dy.::/sh     -::/+hm   
-echo   /+++o+on/       `/+++++yn.://++ms    `/++sn:://++hd   ://++dy.///+d/    -//++hm   
-echo   /++ooosn/       `/++oooyn.//+ooms     :+omm-:++oohd   :++oody.//++ss`   ://+ohm   
-echo   /o+ooosn/       `/++oooyn./++oohs     /ohm+ /++oodd   /++oody`/+++oh/   :++oohm   
-echo   /ooosssn/       `+oossohn./++oooo/:``-sdms` :+osodd   /+ossdy -++++oo../+++oshm   
-echo   /oossssm/       `+oossshn`.ossssssssydmy:   /oossdd   /+ossdy  :+ooooshm+oooshm   
-echo `-osossssh/       `+oossshn`  -/osssydmy-   `-ossssyh``:ooossyy   `:oyhmh+/osssyd`  
-echo  :yhhhhhhhy/      `+osssydm`     `-/yy-      :yhhhhhho.:yyhhhhyo`   .oh/` `+hhhhhs. 
-echo                   `+ssydmh:                                                         
-echo                   `oydmh:                                                           
-echo                   `+mh:                                                             
-echo                     .  
+echo !logo!
 echo			…ÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕª
 echo			∫     noita save tool by hootzmctoke     ∫
 echo			∫         the time is currently:         ∫
@@ -50,7 +63,9 @@ if errorlevel ==2 goto restore
 if errorlevel ==1 goto backupmain
 
 :backupmain
+color 04
 cls
+echo !logo!
 echo			…ÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕª
 echo			∫	  Noita Save Backup Tool	 ∫
 echo			∫	Please select option below       ∫
@@ -123,7 +138,9 @@ GOTO backupmain
 
 
 :restore
+color 09
 cls
+echo !logo!
 echo			…ÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕª
 echo			∫	  Noita Save Restore Tool	 ∫
 echo			∫	Please select option below       ∫
@@ -163,7 +180,9 @@ ECHO Backup 003 restored!
 GOTO startgame
 
 :savetool
+color 05
 cls
+echo !logo!
 echo			…ÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕÕª
 echo			∫	  Noita Save Remove Tool	 ∫
 echo			∫	Please select option below       ∫
@@ -281,3 +300,6 @@ REM https://stackoverflow.com/questions/34090258/find-steam-games-folder
 REM https://github.com/Dregu/NoitaScripts
 REM https://noita-tools.herokuapp.com/
 REM https://superuser.com/questions/1080239/run-powershell-command-from-cmd
+REM https://ss64.com/nt/color.html
+REM https://www.tutorialspoint.com/batch_script/batch_script_strings.htm
+REM https://superuser.com/questions/1360821/how-to-center-a-text-in-a-batch-output#comment2044527_1360862
