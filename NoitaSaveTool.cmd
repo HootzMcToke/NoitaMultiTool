@@ -50,75 +50,11 @@ set menu=^
                     บ            6. Quit                     บ                  ^
                     ศออออออออออออออออออออออออออออออออออออออออผ                  
 
-set backupmain=
 
-                  ษออออออออออออออออออออออออออออออออออออออออป                  ^
-                  บ     noita save tool by hootzmctoke     บ                  ^
-                  บ         the time is currently:         บ                  ^
-                  บ               %time%              บ                  ^
-                  บ         please select an option        บ                  ^
-                  บ         last updated - %update%        บ                  ^
-                  ฬออออออออออออออออออออออออออออออออออออออออน                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  ศออออออออออออออออออออออออออออออออออออออออผ                  
-set restoremain=
-
-                  ษออออออออออออออออออออออออออออออออออออออออป                  ^
-                  บ     noita save tool by hootzmctoke     บ                  ^
-                  บ         the time is currently:         บ                  ^
-                  บ               %time%              บ                  ^
-                  บ         please select an option        บ                  ^
-                  บ         last updated - %update%        บ                  ^
-                  ฬออออออออออออออออออออออออออออออออออออออออน                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  ศออออออออออออออออออออออออออออออออออออออออผ                  
-set seedmain=
-
-                  ษออออออออออออออออออออออออออออออออออออออออป                  ^
-                  บ     noita save tool by hootzmctoke     บ                  ^
-                  บ         the time is currently:         บ                  ^
-                  บ               %time%              บ                  ^
-                  บ         please select an option        บ                  ^
-                  บ         last updated - %update%        บ                  ^
-                  ฬออออออออออออออออออออออออออออออออออออออออน                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  ศออออออออออออออออออออออออออออออออออออออออผ                  
-set deletemain=
-
-                  ษออออออออออออออออออออออออออออออออออออออออป                  ^
-                  บ     noita save tool by hootzmctoke     บ                  ^
-                  บ         the time is currently:         บ                  ^
-                  บ               %time%              บ                  ^
-                  บ         please select an option        บ                  ^
-                  บ         last updated - %update%        บ                  ^
-                  ฬออออออออออออออออออออออออออออออออออออออออน                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  บ                                        บ                  ^
-                  ศออออออออออออออออออออออออออออออออออออออออผ                  
 
 REM -End of Variables - File Wide Variables Located in this section
 
 :welcome
-
 cls
 echo !logo!
 goto mainmenu
