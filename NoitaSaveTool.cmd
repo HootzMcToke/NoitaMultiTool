@@ -1,16 +1,41 @@
-:: SETTINGS
-@echo off
-mode con:cols=80 lines=40
+echo off
+mode con:cols=80 lines=50
 setlocal EnableDelayedExpansion
 setlocal enableextensions
-:: Start Of Variables
-
-set TOOL=Noita Tool by HootzMcToke Version 3.0
-set LAST=Build time %~t0
-set PLZSEL=Please select an option
-
-
-
+set title=                º  Noita Tool by HootzMcToke Version 3.0  º
+set LAST=                º      Build time %~t0     º
+title %title%
+SET BOXTOP=		ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+SET MMSELECT=		º               [1;4mMain Menu[0m                 º
+SET BKSELECT=		º       [1;4mNoita Game Data Backup Tool[0m       º
+SET RESTSELECT=		º       [1;4mNoita Game Data Restore Tool[0m      º
+SET DELSELECT=		º      [1;4mNoita Game Data Deletion Tool[0m      º
+SET SELECT=		º         Select an option below          º
+SET BOXMID=		ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+SET LM=^
+		º             5. Play game                º                       ^
+		º             6. Main Menu                º                       ^
+		º             7. Quit                     º                       ^
+		ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼                
+set MM=^
+                º             1. Backup a save            º                     ^
+                º             2. Restore a save           º                     ^
+                º             3. Delete saves             º                     ^
+                º             4. Seed Editor              º                     
+set BKM=^
+                º             1. Backup to Slot 1         º                     ^
+                º             2. Backup to Slot 2         º                     ^
+                º             3. Backup to Slot 3         º                     ^
+                º             4. Overwrite All            º                     
+set RESTM=^
+                º             1. Restore From Slot 1      º                     ^
+                º             2. Restore From Slot 2      º                     ^
+                º             3. Restore From Slot 3      º                     
+set DELM=^
+                º             1. Delete Save 001          º                     ^
+                º             2. Delete Save 002          º                     ^
+                º             3. Delete Save 003          º                     ^
+                º             4. Delete All Backups       º                     
 set logo=^
 
  [31m    °²     ²²°            [33m                [31m       [33m               [31m               ^
@@ -34,68 +59,53 @@ set logo=^
  [31m ²²²²²²²²        ²²²²²²²² [33m°²²²²²²²²²²²±   [31m ²²²²²²[33m   ²²²²²²  [31m  ²²²²²²²²²²²²²²²  ^
  [31m ²²²²²²²²        ²²²²²²²² [33m   ²²²²²²²²     [31m²²²²²²²[33m  ²²²²²²²  [31m    ²²²²² ²²²²²²²  ^
  [31m ²²²²²²²²²²      ²²²²²²²² [33m       ²²       [31m²²²²²²²²[33m ²²²²²²²² [31m     ²     ²²²²²²  ^
- [31m               ²²²²²²     [33m                [31m       [33m            [31m                   
-
-set menu=^
-
-                    ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»                  ^
-                    º  %TOOL% º                  ^
-                    º     !LAST!     º                  ^
-                    º        !PLZSEL!         º                  ^
-                    ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹                  ^
-                    º            1. Backup a save            º                  ^
-                    º            2. Restore a save           º                  ^
-                    º            3. Delete saves             º                  ^
-                    º            4. Seed Editor              º                  ^
-                    º            5. Play game                º                  ^
-                    º            6. Quit                     º                  ^
-                    ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼                  
-
-
-
-REM -End of Variables - File Wide Variables Located in this section
-
-:welcome
+ [31m               ²²²²²²     [33m                [31m       [33m            [31m
+:MAINMENU
 cls
-echo !logo!
-goto mainmenu
-
-:mainmenu
-echo !menu!
-choice /n /c:123456 >nul
-if errorlevel ==6 goto close
+ECHO !logo!
+echo.
+ECHO [43mÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ[0m
+echo.
+ECHO !BOXTOP!
+ECHO !title!
+ECHO !LAST!
+ECHO !MMSELECT!
+ECHO !SELECT!
+ECHO !BOXMID!
+ECHO !MM!
+ECHO !LM!
+choice /n /c:1234567 >nul
+if errorlevel ==7 goto close
+if errorlevel ==6 goto MAINMENU
 if errorlevel ==5 goto playnoita
 if errorlevel ==4 goto seededit
-if errorlevel ==3 goto savetool
-if errorlevel ==2 goto restore
-if errorlevel ==1 goto backupmain
-
-:backupmain
-color 04
+if errorlevel ==3 goto DELMAIN
+if errorlevel ==2 goto REST
+if errorlevel ==1 goto BACKUP
+goto MAINMENU
+:BACKUP
 cls
-echo !logo!
-echo			ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo			º	  Noita Save Backup Tool	 º
-echo			º	Please select option below       º
-echo			ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
-echo			º           1. Backup to Slot 1          º
-echo			º           2. Backup to Slot 2          º
-echo			º           3. Backup to Slot 3          º
-echo			º           4. Overwrite All	         º
-echo			º           5. Play Game                 º
-echo			º           6. Main Menu                 º
-echo			º           7. Quit                      º
-echo			ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+ECHO !logo!
+echo.
+ECHO [43mÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ[0m
+echo.
+ECHO !BOXTOP!
+ECHO !title!
+ECHO !LAST!
+ECHO !BKSELECT!
+ECHO !SELECT!
+ECHO !BOXMID!
+ECHO !BKM!
+ECHO !LM!
 CHOICE /N /C:1234567 >NUL
 IF ERRORLEVEL ==7 GOTO close
-IF ERRORLEVEL ==6 GOTO welcome
+IF ERRORLEVEL ==6 GOTO MAINMENU
 IF ERRORLEVEL ==5 GOTO playnoita
 IF ERRORLEVEL ==4 GOTO BALL
 IF ERRORLEVEL ==3 GOTO B003
 IF ERRORLEVEL ==2 GOTO B002
 IF ERRORLEVEL ==1 GOTO B001
-GOTO backupmain
-
+GOTO BACKUP
 :B001
 cls
 ECHO Backing Up Save...
@@ -103,8 +113,7 @@ if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\" mkdir "
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00A
 pause
-GOTO backupmain
-
+GOTO BACKUP
 :B002
 cls
 ECHO Backing Up Save...
@@ -112,8 +121,7 @@ if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\" mkdir "
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00B
 pause
-GOTO backupmain
-
+GOTO BACKUP
 :B003
 cls
 ECHO Backing Up Save...
@@ -121,16 +129,14 @@ if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00C
 pause
-GOTO backupmain
-
+GOTO BACKUP
 :BALL
 cls
 echo Are you sure you wish to overwrite all slots with current game data?(Y/N)?
 CHOICE /N /C NY >NUL
 IF ERRORLEVEL 2 GOTO BALL0
-IF ERRORLEVEL 1 GOTO backupmain
-goto backupmain
-
+IF ERRORLEVEL 1 GOTO BACKUP
+goto BACKUP
 :BALL0
 cls
 ECHO Overwriting all Slots with current Game Save Data
@@ -142,32 +148,28 @@ if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" "persistent" >NUL
 ECHO Overwrite Complete - All Slots are based on Last Game Save!
 pause 
-GOTO backupmain
-
-
-:restore
-color 09
+GOTO BACKUP
+:REST
 cls
-echo !logo!
-echo			ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo			º	  Noita Save Restore Tool	 º
-echo			º	Please select option below       º
-echo			ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
-echo			º          1. Restore From Slot 1        º
-echo			º          2. Restore From Slot 2        º
-echo			º          3. Restore From Slot 3        º
-echo			º          4. Play Game                  º
-echo			º          5. Main Menu                  º
-echo			º          6. Quit                       º
-echo			ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
-CHOICE /N /C:123456 >NUL
-IF ERRORLEVEL ==6 GOTO close
-IF ERRORLEVEL ==5 GOTO welcome
-IF ERRORLEVEL ==4 GOTO playnoita
+ECHO !logo!
+echo.
+ECHO [43mÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ[0m
+echo.
+ECHO !BOXTOP!
+ECHO !title!
+ECHO !LAST!
+ECHO !RESTSELECT!
+ECHO !SELECT!
+ECHO !BOXMID!
+ECHO !RESTM!
+ECHO !LM!
+CHOICE /N /C:1234567 >NUL
+IF ERRORLEVEL ==7 GOTO close
+IF ERRORLEVEL ==6 GOTO MAINMENU
+IF ERRORLEVEL ==5 GOTO playnoita
 IF ERRORLEVEL ==3 GOTO R003
 IF ERRORLEVEL ==2 GOTO R002
 IF ERRORLEVEL ==1 GOTO R001
-
 :R001
 cls
 ECHO Restoring Save From Slot 1
@@ -186,50 +188,47 @@ ECHO Restoring Save From Slot 3
 robocopy %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\ %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00 /e >NUL
 ECHO Backup 003 restored!
 GOTO startgame
-
-:savetool
-color 05
+:DELMAIN
 cls
-echo !logo!
-echo			ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo			º	  Noita Save Remove Tool	 º
-echo			º	Please select option below       º
-echo			ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
-echo			º          1. Delete Save 001		 º
-echo			º          2. Delete Save 002		 º
-echo			º          3. Delete Save 003		 º
-echo			º          4. Delete All Backups	 º
-echo			º          5. Play Game                  º
-echo			º          6. Main Menu                  º
-echo			º          7. Quit                       º
-echo			ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+ECHO !logo!
+echo.
+ECHO [43mÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ[0m
+echo.
+ECHO !BOXTOP!
+ECHO !title!
+ECHO !LAST!
+ECHO !DELSELECT!
+ECHO !SELECT!
+ECHO !BOXMID!
+ECHO !DELM!
+ECHO !LM!
 CHOICE /N /C:1234567 >NUL
 IF ERRORLEVEL ==7 GOTO close
-IF ERRORLEVEL ==6 GOTO welcome
+IF ERRORLEVEL ==6 GOTO MAINMENU
 IF ERRORLEVEL ==5 GOTO playnoita
 IF ERRORLEVEL ==4 GOTO RMALL
 IF ERRORLEVEL ==3 GOTO RM003
 IF ERRORLEVEL ==2 GOTO RM002
 IF ERRORLEVEL ==1 GOTO RM001
-
+GOTO DELMAIN
 :RM001
 cls
 ECHO Clearing Save Slot 001
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A"
 ECHO Save Slot 001 Empty!
-goto savetool
+goto DELMAIN
 :RM002
 cls
 ECHO Clearing Save Slot 002
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B"
 ECHO Save Slot 002 Empty!
-goto savetool
+goto DELMAIN
 :RM003
 cls
 ECHO Clearing Save Slot 003
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B"
 ECHO Save Slot 003 Empty!
-goto savetool
+goto DELMAIN
 
 :RMALL
 cls
@@ -239,54 +238,40 @@ rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B"
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C"
 ECHO All Slots Empty!
 pause
-goto savetool
-
-
+goto DELMAIN
+:seededit
+ECHO Comming Soon!
+pause
+GOTO MAINMENU
 :startGame
 echo Do you wish to start Noita? [Y/N]:
 CHOICE /N /C YNM >NUL
-IF ERRORLEVEL 3 GOTO welcome
+IF ERRORLEVEL 3 GOTO MAINMENU
 IF ERRORLEVEL 2 GOTO close
 IF ERRORLEVEL 1 GOTO playnoita
-
 :playnoita
 ECHO Launching Noita 
 start steam://rungameid/881100
 GOTO GameMonitor
-
-
 :GameMonitor
 SETLOCAL EnableExtensions
-
 set EXE=noita.exe
-
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto ProcessFound
-
 goto ProcessNotFound
-
 :ProcessFound
 echo %EXE% is running
 goto GameMonitor
 :ProcessNotFound
 echo %EXE% is not running
-goto welcome
-
-
-:seededit
-ECHO Comming Soon!
-pause
-GOTO welcome
-
+goto MAINMENU
 :quit
 cls
 echo Do you want to quit(Y/N)?
 CHOICE /N /C NY >NUL
 IF ERRORLEVEL 2 GOTO close
-IF ERRORLEVEL 1 GOTO welcome
-
+IF ERRORLEVEL 1 GOTO MAINMENU
 :close
 cls
 echo See you soon! Press Any Key
 timeout 3 >NUL
 EXIT 
-
