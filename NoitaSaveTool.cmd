@@ -35,6 +35,7 @@ set logo=^
  [31m ²²²²²²²²        ²²²²²²²² [33m   ²²²²²²²²     [31m²²²²²²²[33m  ²²²²²²²  [31m    ²²²²² ²²²²²²²  ^
  [31m ²²²²²²²²²²      ²²²²²²²² [33m       ²²       [31m²²²²²²²²[33m ²²²²²²²² [31m     ²     ²²²²²²  ^
  [31m               ²²²²²²     [33m                [31m       [33m            [31m                   
+
 set menu=^
 
                     ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»                  ^
@@ -289,24 +290,3 @@ echo See you soon! Press Any Key
 timeout 3 >NUL
 EXIT 
 
-REM References and Sources 
-REM https://stackoverflow.com/questions/34977487/batch-menu-outlines-and-design
-REM https://superuser.com/questions/1360821/how-to-center-a-text-in-a-batch-output
-REM https://stackoverflow.com/questions/162291/how-to-check-if-a-process-is-running-via-a-batch-script
-REM https://en.wikipedia.org/wiki/Box-drawing_character
-REM https://stackoverflow.com/questions/8177695/how-to-wait-for-a-process-to-terminate-to-execute-another-process-in-batch-file/8197920
-REM https://stackoverflow.com/questions/5837418/how-do-you-get-the-string-length-in-a-batch-file/5841587
-REM https://steamcommunity.com/sharedfiles/filedetails/?id=1889553978
-REM https://stackoverflow.com/questions/12572718/how-to-change-text-color-of-cmd-with-windows-batch-script-every-1-second
-REM http://waynes-world-it.blogspot.com
-REM https://jrgraphix.net/r/Unicode/2500-257F
-REM http://steve-jansen.github.io/guides/windows-batch-scripting/part-1-getting-started.html
-REM https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/commands-by-server-role:welcome
-REM https://superuser.com/questions/700458/looking-to-create-a-batch-file-capable-of-editing-a-line-or-word-in-a-text-fil
-REM https://stackoverflow.com/questions/34090258/find-steam-games-folder
-REM https://github.com/Dregu/NoitaScripts
-REM https://noita-tools.herokuapp.com/
-REM https://superuser.com/questions/1080239/run-powershell-command-from-cmd
-REM https://ss64.com/nt/color.html
-REM https://www.tutorialspoint.com/batch_script/batch_script_strings.htm
-REM https://superuser.com/questions/1360821/how-to-center-a-text-in-a-batch-output#comment2044527_1360862
