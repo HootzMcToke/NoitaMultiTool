@@ -1,46 +1,66 @@
-ECHO off
+:: SETTINGS
+@echo off
+mode con:cols=80 lines=40
+setlocal EnableDelayedExpansion
+setlocal enableextensions
+:: Start Of Variables
+
+set TOOL=Noita Tool by HootzMcToke Version 3.0
+set LAST=Build time %~t0
+set PLZSEL=Please select an option
+
+
+
+set logo=^
+
+ [31m    °²     ²²°            [33m                [31m       [33m               [31m               ^
+ [31m   ²²²²²²  ²²²²²²         [33m                [31m       [33m               [31m               ^
+ [31m ²²²²²²²²²²²²²²²²²²       [33m                [31m  ²²²² [33m      ²²²      [31m               ^
+ [31m ²²²²²²²²²²  ²²²²²²²²     [33m                [31m ²²²²² [33m    ²²²²²      [31m               ^
+ [31m ²²²²²²²²      ²²²²²²²²   [33m                [31m   ²²²²[33m   ²²²²²²      [31m               ^
+ [31m ²²²²²²²²        ²²²²²²²²²[33m                [31m    ²[33m     ²²²²²²      [31m               ^
+ [31m ²²²²²²²²         ²²²²²²²°[33m                [31m    ° [33m²²²²²²²²²²²²²²²²±[31m              ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m         ²      [31m   ²  [33m²²²²²²²²²²²²²²² [31m      ²        ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m     ²²²²²²     [31m ²²²²  [33m   ²²²²²²  [31m       ²²²²²²²     ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²²²²²²²²   [31m²²²²²²²[33m   ²²²²²²  [31m     ²²²²²²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²² ²²²²²²²² [31m ²²²²²²[33m   ²²²²²²  [31m   ²²²²  ²²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²   ²²²²²² [31m ²²²²²²[33m   ²²²²²²  [31m  ²²²²    ²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²    ²²²²²²[31m ²²²²²²[33m   ²²²²²²  [31m ²²²²     ²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²    ²²²²²²[31m ²²²²²²[33m   ²²²²²²  [31m²²²²²     ²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²    ²²²²²²[31m ²²²²²²[33m   ²²²²²²  [31m²²²²²     ²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²     ²²²²²[31m ²²²²²²[33m   ²²²²²²  [31m²²²²²²    ²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²     ²²²² [31m ²²²²²²[33m   ²²²²²²  [31m²²²²²²²   ²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m²²²²²²²²  ²²²²² [31m ²²²²²²[33m   ²²²²²²  [31m ²²²²²²  ²²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m°²²²²²²²²²²²±   [31m ²²²²²²[33m   ²²²²²²  [31m  ²²²²²²²²²²²²²²²  ^
+ [31m ²²²²²²²²        ²²²²²²²² [33m   ²²²²²²²²     [31m²²²²²²²[33m  ²²²²²²²  [31m    ²²²²² ²²²²²²²  ^
+ [31m ²²²²²²²²²²      ²²²²²²²² [33m       ²²       [31m²²²²²²²²[33m ²²²²²²²² [31m     ²     ²²²²²²  ^
+ [31m               ²²²²²²     [33m                [31m       [33m            [31m                   
+set menu=^
+
+                    ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»                  ^
+                    º  %TOOL% º                  ^
+                    º     !LAST!     º                  ^
+                    º        !PLZSEL!         º                  ^
+                    ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹                  ^
+                    º            1. Backup a save            º                  ^
+                    º            2. Restore a save           º                  ^
+                    º            3. Delete saves             º                  ^
+                    º            4. Seed Editor              º                  ^
+                    º            5. Play game                º                  ^
+                    º            6. Quit                     º                  ^
+                    ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼                  
+
+
+
+REM -End of Variables - File Wide Variables Located in this section
+
 :welcome
 cls
-echo      ``.:y.  `...`                                                                  
-echo   `...--/n/ ..----.`                             :-         `:                      
-echo  `.---:-:y/so:------.`                         `.+s.      `.-hy                     
-echo   ----:::ymd/`.-------.`                      `.--:/.   `.--:dy                     
-echo   ---:::/no`    .-:-----.`                      .odmo   .--::dy                     
-echo   ---:///n/       .-:::::/o+.                    +s-`   .--::ys                     
-echo   --:://+n/        `-:::/smo`                     .-::::---::::::/sh-               
-echo   -::://+n/       `--::::sn`         `.`        `-.+ssss---::hdsssy+`    `          
-echo   -::://+n/       `---:::sn`     ``...-/      `..::    `---::dy        `.--.```     
-echo   -::///+n/       `-:::::sn` ``.-s/-------.  .----:o/   ---::dy      `-:--------/:` 
-echo   :://+/+n/       `-:::/:sn`.--::dy`.----:s.  ---::hd   ---:/dy    `/hds+/---::sms. 
-echo   :///+/+n/       `-::://sn`---::ds  .--::/h- ---//hd   --://dy  `.+mh:` .---//ym   
-echo   :///++on/       `:::://sn`--::/ds  `-:::/oy`--://hd   -:://dy `-:hd.    .--//ym   
-echo   ://+++on/       `:/:///yn`-:://ds   `:://on:-::/+hd   -:://dy`-:/hh     -:://ym   
-echo   :+++o+on/       `:///++yn.://++ms    -//+on:-//++hd   ://++dy.::/sh     -::/+hm   
-echo   /+++o+on/       `/+++++yn.://++ms    `/++sn:://++hd   ://++dy.///+d/    -//++hm   
-echo   /++ooosn/       `/++oooyn.//+ooms     :+omm-:++oohd   :++oody.//++ss`   ://+ohm   
-echo   /o+ooosn/       `/++oooyn./++oohs     /ohm+ /++oodd   /++oody`/+++oh/   :++oohm   
-echo   /ooosssn/       `+oossohn./++oooo/:``-sdms` :+osodd   /+ossdy -++++oo../+++oshm   
-echo   /oossssm/       `+oossshn`.ossssssssydmy:   /oossdd   /+ossdy  :+ooooshm+oooshm   
-echo `-osossssh/       `+oossshn`  -/osssydmy-   `-ossssyh``:ooossyy   `:oyhmh+/osssyd`  
-echo  :yhhhhhhhy/      `+osssydm`     `-/yy-      :yhhhhhho.:yyhhhhyo`   .oh/` `+hhhhhs. 
-echo                   `+ssydmh:                                                         
-echo                   `oydmh:                                                           
-echo                   `+mh:                                                             
-echo                     .  
-echo			ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-echo			º     noita save tool by hootzmctoke     º
-echo			º         the time is currently:         º
-echo			º		%time%		 º
-echo			º         please select an option        º
-echo			º         last updated - 08-18-20        º
-echo			ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
-echo			º            1. Backup a save            º
-echo			º            2. Restore a save           º
-echo			º            3. Delete saves             º
-echo			º            4. Seed Editor              º
-echo			º            5. Play game                º
-echo			º            6. Quit                     º
-echo			ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+echo !logo!
+goto mainmenu
+
+:mainmenu
+echo !menu!
 choice /n /c:123456 >nul
 if errorlevel ==6 goto close
 if errorlevel ==5 goto playnoita
@@ -50,7 +70,9 @@ if errorlevel ==2 goto restore
 if errorlevel ==1 goto backupmain
 
 :backupmain
+color 04
 cls
+echo !logo!
 echo			ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 echo			º	  Noita Save Backup Tool	 º
 echo			º	Please select option below       º
@@ -123,7 +145,9 @@ GOTO backupmain
 
 
 :restore
+color 09
 cls
+echo !logo!
 echo			ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 echo			º	  Noita Save Restore Tool	 º
 echo			º	Please select option below       º
@@ -163,7 +187,9 @@ ECHO Backup 003 restored!
 GOTO startgame
 
 :savetool
+color 05
 cls
+echo !logo!
 echo			ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 echo			º	  Noita Save Remove Tool	 º
 echo			º	Please select option below       º
@@ -281,3 +307,6 @@ REM https://stackoverflow.com/questions/34090258/find-steam-games-folder
 REM https://github.com/Dregu/NoitaScripts
 REM https://noita-tools.herokuapp.com/
 REM https://superuser.com/questions/1080239/run-powershell-command-from-cmd
+REM https://ss64.com/nt/color.html
+REM https://www.tutorialspoint.com/batch_script/batch_script_strings.htm
+REM https://superuser.com/questions/1360821/how-to-center-a-text-in-a-batch-output#comment2044527_1360862
