@@ -2,7 +2,7 @@ echo off
 mode con:cols=80 lines=50
 setlocal EnableDelayedExpansion
 setlocal enableextensions
-set title=                บ  Noita Tool by HootzMcToke Version 3.0  บ
+set title=                บ  Noita Tool by HootzMcToke Version 2.5  บ
 set LAST=                บ      Build time %~t0     บ
 title %title%
 SET BOXTOP=		ษอออออออออออออออออออออออออออออออออออออออออป
