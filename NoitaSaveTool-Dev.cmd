@@ -41,6 +41,12 @@ set TOOLS=^
                 บ             2. Settings                 บ                     ^
                 บ             3. Open Save Location       บ                     ^
                 บ             4. Open Tool Location       บ                     
+set CS=^
+                บ             1. Enter Seed               บ                     ^
+                บ             2. Play Game (No Change)    บ                     ^
+                บ             3. Main Menu                บ                     ^
+                บ             4. Quit                     บ                     ^
+		        ศอออออออออออออออออออออออออออออออออออออออออผ				
 set logo=^
 
  [31m    ฐฒ     ฒฒฐ            [33m                [31m       [33m               [31m               ^
@@ -262,9 +268,24 @@ if errorlevel ==2 goto settings
 if errorlevel ==1 goto DELMAIN
 goto MAINMENU
 :SEEDSTART
-ECHO Comming Soon!
-pause
+cls
+ECHO !logo!
+ECHO !BOXTOP!
+ECHO !title!
+ECHO !LAST!
+ECHO !BKSELECT!
+ECHO !SELECT!
+ECHO !BOXMID!
+ECHO !CS!
+choice /n /c:1234 >nul
+if errorlevel ==4 goto close
+if errorlevel ==3 goto MAINMENU
+if errorlevel ==2 goto playnoita
+if errorlevel ==1 goto seedenter
 GOTO MAINMENU
+:seedenter
+pause
+goto SEEDSTART
 :settings
 ECHO Comming Soon!
 pause
