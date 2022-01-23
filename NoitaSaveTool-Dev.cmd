@@ -227,6 +227,13 @@ goto DELMAIN
 
 :RMALL
 cls
+echo Are you sure you wish to delete all backup save slots?(Y/N)?
+CHOICE /N /C NY >NUL
+IF ERRORLEVEL 2 GOTO RMALL1
+IF ERRORLEVEL 1 GOTO DELMAIN
+goto DELMAIN
+:RMALL1
+cls
 ECHO Clearing all backup saves (Current game is untouched)
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A"
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B"
