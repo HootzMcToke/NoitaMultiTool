@@ -71,7 +71,10 @@ SET Menu_Tools=^
             บ               5. Open Tool Folder                    บ            ^
             บ               6. Main Menu                           บ            ^
             บ               7. Quit                                บ            ^
-            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
+            บ*To open install folder you must set the GAME variableบ            ^
+            บcorrectly, this is located at the top of this script  บ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ						
 SET Menu_Seed=^
             บ               1. Enter Seed                          บ            ^
             บ               2. Reset                               บ            ^
@@ -83,7 +86,7 @@ SET Menu_Seed=^
             บ*Seed will be set unless reset                        บ            ^
             บ*This will only work if the SET=GAME is correct       บ            ^
             บ*Setting the seed will delete current save data       บ            ^
-            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ            
 SET Menu_Lower=^
             บ                 5. Open save folder                  บ            ^
             บ                 6. Play game                         บ            ^
@@ -255,6 +258,8 @@ cls
 ECHO !Menu_Logo!
 ECHO !Menu_Title!
 ECHO !Menu_Tools!
+ECHO Noita is installed at the below location:
+ECHO !GAME!
 choice /n /c:1234567 >nul
 if errorlevel ==7 goto close
 if errorlevel ==6 goto MAINMENU
