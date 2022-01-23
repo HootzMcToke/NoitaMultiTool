@@ -6,31 +6,26 @@ set title=                บ  Noita Tool by HootzMcToke Version 2.5  บ
 set LAST=                บ      Build time %~t0     บ
 title %title%
 SET BOXTOP=		ษอออออออออออออออออออออออออออออออออออออออออป
-SET MMSELECT=		บ               [1;4mMain Menu[0m                 บ
-SET BKSELECT=		บ       [1;4mNoita Game Data Backup Tool[0m       บ
-SET RESTSELECT=		บ       [1;4mNoita Game Data Restore Tool[0m      บ
-SET DELSELECT=		บ      [1;4mNoita Game Data Deletion Tool[0m      บ
 SET SELECT=		บ         Select an option below          บ
 SET BOXMID=		ฬอออออออออออออออออออออออออออออออออออออออออน
 SET LM=^
 		บ             5. Main Menu                บ                       ^
 		บ             6. Play game                บ                       ^
 		บ             7. Quit                     บ                       ^
-		ศอออออออออออออออออออออออออออออออออออออออออผ                
+		ศอออออออออออออออออออออออออออออออออออออออออผ                                
 set MM=^
                 บ             1. Backup a save            บ                     ^
                 บ             2. Restore a save           บ                     ^
                 บ             3. Tools                    บ                     ^
-                บ             4. Custom Seed Start        บ                     
+                บ             4. Custom Seed Start        บ
 set BKM=^
                 บ             1. Backup to Slot 1         บ                     ^
                 บ             2. Backup to Slot 2         บ                     ^
-                บ             3. Backup to Slot 3         บ                     ^
-                บ             4. Overwrite All            บ                     
+                บ             3. Backup to Slot 3         บ
 set RESTM=^
                 บ             1. Restore From Slot 1      บ                     ^
                 บ             2. Restore From Slot 2      บ                     ^
-                บ             3. Restore From Slot 3      บ                     
+                บ             3. Restore From Slot 3      บ
 set DELM=^
                 บ             1. Delete Save 001          บ                     ^
                 บ             2. Delete Save 002          บ                     ^
@@ -39,14 +34,14 @@ set DELM=^
 set TOOLS=^
                 บ             1. Delete Saves             บ                     ^
                 บ             2. Settings                 บ                     ^
-                บ             3. Open Save Location       บ                     ^
-                บ             4. Open Tool Location       บ                     
+                บ             3. Open Tool Location       บ
 set CS=^
                 บ             1. Enter Seed               บ                     ^
                 บ             2. Play Game (No Change)    บ                     ^
                 บ             3. Main Menu                บ                     ^
                 บ             4. Quit                     บ                     ^
-		        ศอออออออออออออออออออออออออออออออออออออออออผ				
+		        ศอออออออออออออออออออออออออออออออออออออออออผ			
+SET SAVLOC=                บ             4. Open Save Location       บ
 set logo=^
 
  [31m    ฐฒ     ฒฒฐ            [33m                [31m       [33m               [31m               ^
@@ -79,7 +74,6 @@ ECHO !logo!
 ECHO !BOXTOP!
 ECHO !title!
 ECHO !LAST!
-ECHO !MMSELECT!
 ECHO !SELECT!
 ECHO !BOXMID!
 ECHO !MM!
@@ -99,16 +93,16 @@ ECHO !logo!
 ECHO !BOXTOP!
 ECHO !title!
 ECHO !LAST!
-ECHO !BKSELECT!
 ECHO !SELECT!
 ECHO !BOXMID!
 ECHO !BKM!
+ECHO !SAVLOC!
 ECHO !LM!
 CHOICE /N /C:1234567 >NUL
 if errorlevel ==7 goto close
 if errorlevel ==6 goto playnoita
 if errorlevel ==5 goto MAINMENU
-IF ERRORLEVEL ==4 GOTO BALL
+IF ERRORLEVEL ==4 GOTO opensave
 IF ERRORLEVEL ==3 GOTO B003
 IF ERRORLEVEL ==2 GOTO B002
 IF ERRORLEVEL ==1 GOTO B001
@@ -162,15 +156,16 @@ ECHO !logo!
 ECHO !BOXTOP!
 ECHO !title!
 ECHO !LAST!
-ECHO !RESTSELECT!
 ECHO !SELECT!
 ECHO !BOXMID!
 ECHO !RESTM!
+ECHO !SAVLOC!
 ECHO !LM!
 CHOICE /N /C:1234567 >NUL
 if errorlevel ==7 goto close
 if errorlevel ==6 goto playnoita
 if errorlevel ==5 goto MAINMENU
+IF ERRORLEVEL ==4 GOTO opensave
 IF ERRORLEVEL ==3 GOTO R003
 IF ERRORLEVEL ==2 GOTO R002
 IF ERRORLEVEL ==1 GOTO R001
@@ -198,7 +193,6 @@ ECHO !logo!
 ECHO !BOXTOP!
 ECHO !title!
 ECHO !LAST!
-ECHO !DELSELECT!
 ECHO !SELECT!
 ECHO !BOXMID!
 ECHO !DELM!
@@ -253,17 +247,17 @@ ECHO !logo!
 ECHO !BOXTOP!
 ECHO !title!
 ECHO !LAST!
-ECHO !MMSELECT!
 ECHO !SELECT!
 ECHO !BOXMID!
 ECHO !TOOLS!
+ECHO !SAVLOC!
 ECHO !LM!
 choice /n /c:1234567 >nul
 if errorlevel ==7 goto close
 if errorlevel ==6 goto playnoita
 if errorlevel ==5 goto MAINMENU
-if errorlevel ==4 goto toolloc
-if errorlevel ==3 goto opensave
+if errorlevel ==4 goto opensave
+if errorlevel ==3 goto toolloc
 if errorlevel ==2 goto settings
 if errorlevel ==1 goto DELMAIN
 goto MAINMENU
@@ -273,7 +267,6 @@ ECHO !logo!
 ECHO !BOXTOP!
 ECHO !title!
 ECHO !LAST!
-ECHO !BKSELECT!
 ECHO !SELECT!
 ECHO !BOXMID!
 ECHO !CS!
@@ -284,6 +277,7 @@ if errorlevel ==2 goto playnoita
 if errorlevel ==1 goto seedenter
 GOTO MAINMENU
 :seedenter
+ECHO Comming Soon!
 pause
 goto SEEDSTART
 :settings
@@ -313,7 +307,7 @@ explorer %~dp0
 goto TOOLS
 :opensave
 explorer  "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\"
-goto TOOLS
+goto MAINMENU
 :ProcessNotFound
 echo %EXE% is not running
 goto MAINMENU
