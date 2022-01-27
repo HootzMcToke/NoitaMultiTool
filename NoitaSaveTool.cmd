@@ -86,16 +86,33 @@ SET Menu_Seed=^
             บ*Seed will be set unless reset                        บ            ^
             บ*This will only work if the SET=GAME is correct       บ            ^
             บ*Setting the seed will delete current save data       บ            ^
-            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ            
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ 
+SET Menu_Settings=^
+            บ                 1. Steam.exe Location                บ            ^
+            บ                 2. Noita.exe Location                บ            ^
+            บ                 3. Main Menu                         บ            ^
+            บ                 4. Play Game                         บ            ^
+            บ                 5. Quit                              บ            ^
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
+            บ*Features are not completed yet                       บ            ^
+            บ*This currently works only with the steam version     บ            ^
+            บ*You can modify the script to work with other versionsบ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+			
 SET Menu_Lower=^
             บ                 5. Open save folder                  บ            ^
             บ                 6. Play game                         บ            ^
             บ                 7. Main menu                         บ            ^
             บ                 8. Quit                              บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ			
-:: Varaibles for opperations
+:: Noita Install
 SET GAME=Z:\SteamLibrary\steamapps\common\Noita
-															
+:: Steam Install
+SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe
+:: World Seed
+SET seed=669 
+
+
 :MAINMENU
 cls
 ECHO !Menu_Logo!
@@ -286,13 +303,29 @@ ECHO Comming Soon!
 pause
 goto SEEDSTART
 :seedenter
-ECHO Comming Soon!
+echo Comming Soon
 pause
-goto SEEDSTART
+goto PLAYMAGIC
 :settings
-ECHO Comming Soon!
+cls
+echo !Menu_Logo!
+echo !Menu_Title!
+echo !Menu_Settings!
+choice /n /c:12345 >nul
+if errorlevel ==5 goto close
+if errorlevel ==4 goto PLAY
+if errorlevel ==3 goto MAINMENU
+if errorlevel ==2 goto NoitaEnter
+if errorlevel ==1 goto SteamEnter
+goto settings
+:NoitaEnter
+ECHO Comming soon
 pause
-goto TOOLS
+goto settings
+:SteamEnter
+ECHO Comming Soon
+pause
+goto settings
 :startGame
 ECHO Do you wish to start Noita? [Y/N]:
 CHOICE /N /C YNM >NUL
@@ -300,8 +333,21 @@ IF ERRORLEVEL 3 GOTO MAINMENU
 IF ERRORLEVEL 2 GOTO close
 IF ERRORLEVEL 1 GOTO PLAY
 :PLAY
-ECHO Launching Noita 
-start steam://rungameid/881100
+ECHO Launching Noita
+start %STEAM% -applaunch 881100 -no_logo_splashes
+GOTO GameMonitor
+:PLAYMAGIC 
+ECHO Deleting old magic.txt
+del %game%\magic.txt
+(
+	echo ^<MagicNumbers
+	echo WORLD_SEED="!seed!"
+	echo _DEBUG_DONT_LOAD_OTHER_MAGIC_NUMBERS="1"
+	echo _DEBUG_DONT_SAVE_MAGIC_NUMBERS="1" ^>
+	echo ^</MagicNumbers^>
+)>"%game%\magic.txt"
+ECHO Launching With Custom Seed
+start %STEAM% -applaunch 881100 -no_logo_splashes -magic_numbers magic.txt
 GOTO GameMonitor
 :GameMonitor
 SETLOCAL EnableExtensions
@@ -333,4 +379,4 @@ IF ERRORLEVEL 1 GOTO MAINMENU
 cls
 ECHO See you soon! Press Any Key
 timeout 3 >NUL
-EXIT 
+EXIT
