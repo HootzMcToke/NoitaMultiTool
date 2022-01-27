@@ -77,15 +77,13 @@ SET Menu_Tools=^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ						
 SET Menu_Seed=^
             บ               1. Enter Seed                          บ            ^
-            บ               2. Reset                               บ            ^
-            บ               3. Play Game (No Change)               บ            ^
-            บ               4. Main Menu                           บ            ^
-            บ               5. Quit                                บ            ^
+            บ               2. Play Game (No Seed)                 บ            ^
+            บ               3. Main Menu                           บ            ^
+            บ               4. Quit                                บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
-            บ*Feature is not completed yet                         บ            ^
-            บ*Seed will be set unless reset                        บ            ^
+            บ*"Enter Seed" launches the game with current set seed บ            ^
             บ*This will only work if the SET=GAME is correct       บ            ^
-            บ*Setting the seed will delete current save data       บ            ^
+            บ*You need to start a new game for the seed to change  บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ 
 SET Menu_Settings=^
             บ                 1. Steam.exe Location                บ            ^
@@ -291,11 +289,10 @@ cls
 ECHO !Menu_Logo!
 ECHO !Menu_Title!
 ECHO !Menu_Seed!
-choice /n /c:12345 >nul
-if errorlevel ==5 goto close
-if errorlevel ==4 goto MAINMENU
-if errorlevel ==3 goto PLAY
-if errorlevel ==2 goto resetseed
+choice /n /c:1234 >nul
+if errorlevel ==4 goto close
+if errorlevel ==3 goto MAINMENU
+if errorlevel ==2 goto PLAY
 if errorlevel ==1 goto seedenter
 GOTO MAINMENU
 :resetseed
