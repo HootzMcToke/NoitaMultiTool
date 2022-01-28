@@ -37,10 +37,12 @@ SET Menu_Title=^
             บ                Select an option below                บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            
 SET Menu_Main=^
+            บ* YOU MUST GENERATE A SETTINGS FILE BEFORE FIRST USE *บ            ^
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
             บ                 1. Backup a save                     บ            ^
             บ                 2. Restore a save                    บ            ^
             บ                 3. Custom Seed Start                 บ            ^
-            บ                 4. Tools                             บ            ^
+            บ                 4. Settings /  Tools                 บ            ^
             บ                 5. Play Game                         บ            ^
             บ                 6. Quit                              บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
@@ -86,15 +88,17 @@ SET Menu_Seed=^
             บ*You need to start a new game for the seed to change  บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ 
 SET Menu_Settings=^
-            บ                 1. Steam.exe Location                บ            ^
-            บ                 2. Noita.exe Location                บ            ^
-            บ                 3. Main Menu                         บ            ^
-            บ                 4. Play Game                         บ            ^
-            บ                 5. Quit                              บ            ^
+            บ* YOU MUST GENERATE A SETTINGS FILE BEFORE FIRST USE *บ            ^
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
+            บ                 1. Set Steam.exe Location            บ            ^
+            บ                 2. Set Noita.exe Location            บ            ^
+            บ                 3. Generate Settings File            บ            ^
+            บ                 4. Main Menu                         บ            ^
+            บ                 5. Play Game                         บ            ^
+            บ                 6. Quit                              บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
             บ*Features are not completed yet                       บ            ^
             บ*This currently works only with the steam version     บ            ^
-            บ*You can modify the script to work with other versionsบ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 			
 SET Menu_Lower=^
@@ -103,14 +107,13 @@ SET Menu_Lower=^
             บ                 7. Main menu                         บ            ^
             บ                 8. Quit                              บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ			
-:: Noita Install
-SET GAME=Z:\SteamLibrary\steamapps\common\Noita
-:: Steam Install
-SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe
-:: World Seed
-SET seed=669 
-
-
+:: Variables are now stored in the SaveToolSettings.bat file, the following block calls them
+:VAR
+(
+SET /p GAME= 
+SET /p STEAM= 
+SET /p Seed=
+)< SaveToolSettings.bat
 :MAINMENU
 cls
 ECHO !Menu_Logo!
@@ -273,8 +276,6 @@ cls
 ECHO !Menu_Logo!
 ECHO !Menu_Title!
 ECHO !Menu_Tools!
-ECHO Noita is installed at the below location:
-ECHO !GAME!
 choice /n /c:1234567 >nul
 if errorlevel ==7 goto close
 if errorlevel ==6 goto MAINMENU
@@ -295,10 +296,6 @@ if errorlevel ==3 goto MAINMENU
 if errorlevel ==2 goto PLAY
 if errorlevel ==1 goto seedenter
 GOTO MAINMENU
-:resetseed
-ECHO Comming Soon!
-pause
-goto SEEDSTART
 :seedenter
 echo Comming Soon
 pause
@@ -308,10 +305,11 @@ cls
 echo !Menu_Logo!
 echo !Menu_Title!
 echo !Menu_Settings!
-choice /n /c:12345 >nul
-if errorlevel ==5 goto close
-if errorlevel ==4 goto PLAY
-if errorlevel ==3 goto MAINMENU
+choice /n /c:123456 >nul
+if errorlevel ==6 goto close
+if errorlevel ==5 goto PLAY
+if errorlevel ==4 goto MAINMENU
+if errorlevel ==3 goto Generate
 if errorlevel ==2 goto NoitaEnter
 if errorlevel ==1 goto SteamEnter
 goto settings
@@ -320,7 +318,8 @@ ECHO Comming soon
 pause
 goto settings
 :SteamEnter
-ECHO Comming Soon
+ECHO Enter Steam location IE: "C:\"Program Files (x86)"\Steam\steam.exe"
+SET /P STEAM=
 pause
 goto settings
 :startGame
@@ -366,6 +365,15 @@ goto TOOLS
 :ProcessNotFound
 ECHO %EXE% is not running
 goto MAINMENU
+:Generate
+(
+	echo Z:\SteamLibrary\steamapps\common\Noita
+	echo C:\"Program Files (x86)"\Steam\steam.exe
+	echo 69
+)>SaveToolSettings.bat
+ECHO SaveToolSettings.bat created - you can now use the tool
+pause
+goto VAR
 :quit
 cls
 ECHO Do you want to quit(Y/N)?
