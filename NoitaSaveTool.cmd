@@ -74,9 +74,6 @@ SET _Settings=^
             บ               4. Open Tool Folder                    บ            ^
             บ               5. Main Menu                           บ            ^
             บ               6. Quit                                บ            ^
-            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
-            บ*To open install folder you must set the GAME variableบ            ^
-            บcorrectly, this is located at the top of this script  บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ						
 SET _Seed=^
             บ               1. Enter Seed                          บ            ^
@@ -84,20 +81,17 @@ SET _Seed=^
             บ               3. Main Menu                           บ            ^
             บ               4. Quit                                บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
-            บ*"Enter Seed" launches the game with current set seed บ            ^
-            บ*This will only work if the SET=GAME is correct       บ            ^
-            บ*You need to start a new game for the seed to change  บ            ^
-            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ 
-		
+            บ*You need to start a new game for the seed to change *บ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 SET _Lower=^
             บ                 5. Open save folder                  บ            ^
             บ                 6. Play game                         บ            ^
             บ                 7. Main menu                         บ            ^
             บ                 8. Quit                              บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ			
-:VAR
+:VAR :: The things located below are the only things you may need to change 
 SET GAME=Z:\SteamLibrary\steamapps\common\Noita
-SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe 
+SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe
 SET SAVELOC="%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\"
 SET Seed=
 :menu_Main
