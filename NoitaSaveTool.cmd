@@ -1,11 +1,9 @@
 ECHO off
-mode con:cols=80 lines=50
-SETlocal EnableDelayedExpansion
-SETlocal enableextensions
-title Noita Tool by HootzMcToke Version 3.5
+mode con:cols=80 lines=40
+SETlocal EnableDelayedExpansion enableextensions 
+title Noita MultiTool By HootzMcToke
 :: Menu Components are below
 SET _Logo=^
-
  [31m    ฐฒ     ฒฒฐ            [33m                [31m       [33m               [31m               ^
  [31m   ฒฒฒฒฒฒ  ฒฒฒฒฒฒ         [33m                [31m       [33m               [31m               ^
  [31m ฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ       [33m                [31m  ฒฒฒฒ [33m      ฒฒฒ      [31m               ^
@@ -32,7 +30,7 @@ SET _Logo=^
 [43mÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ[0m						 ^	
 SET _Title=^
             ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป            ^
-            บ        Noita Tool by HootzMcToke Version 3.5         บ            ^
+            บ            Noita MultiTool By HootzMcToke            บ            ^
             บ           Build time %~t0             บ            ^
             บ                Select an option below                บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            
@@ -68,20 +66,20 @@ SET _Delete=^
             บ                 3. Delete slot 3                     บ            ^
             บ                 4. Delete all                        บ            
 SET _Settings=^
-            บ               1. Delete Saves                        บ            ^
-            บ               2. Open Install Folder                 บ            ^
-            บ               3. Open Save Folder                    บ            ^
-            บ               4. Open Tool Folder                    บ            ^
-            บ               5. Main Menu                           บ            ^
-            บ               6. Quit                                บ            ^
+            บ                 1. Delete Saves                      บ            ^
+            บ                 2. Open Install Folder               บ            ^
+            บ                 3. Open Save Folder                  บ            ^
+            บ                 4. Open Tool Folder                  บ            ^
+            บ                 5. Main Menu                         บ            ^
+            บ                 6. Quit                              บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ						
 SET _Seed=^
-            บ               1. Enter Seed                          บ            ^
-            บ               2. Play Game (No Seed)                 บ            ^
-            บ               3. Main Menu                           บ            ^
-            บ               4. Quit                                บ            ^
+            บ                 1. Enter Seed                        บ            ^
+            บ                 2. Play Game (No Seed)               บ            ^
+            บ                 3. Main Menu                         บ            ^
+            บ                 4. Quit                              บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
-            บ*You need to start a new game for the seed to change *บ            ^
+            บ[1;31m*[0m          [1;4;91mStart a new game for custom seed[0m          [1;31m*[0mบ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 SET _Lower=^
             บ                 5. Open save folder                  บ            ^
