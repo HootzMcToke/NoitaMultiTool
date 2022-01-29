@@ -38,9 +38,13 @@ SET _Main=^
             บ                 1. Backup and Restore                บ            ^
             บ                 2. Custom Seed Start                 บ            ^
             บ                 3. Open Save Folder                  บ            ^
-            บ                 4. Settings                          บ            ^
-            บ                 5. Play Game                         บ            ^
-            บ                 6. Quit                              บ            ^
+            บ                 4. [1;31m*[0mnoitatool.com[1;31m*[0m                   บ            ^
+            บ                 5. Settings                          บ            ^
+            บ                 6. Play Game                         บ            ^
+            บ                 7. Quit                              บ            ^
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
+            บ        [1;31m*[0mThis site allows you to check seeds[1;31m*[0m         บ            ^
+            บ      [1;31m*[0mThis is not my website, its just useful[1;31m*[0m       บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ            
 SET _BKREST=^
             บ                 1. Backup Save                       บ            ^
@@ -91,19 +95,21 @@ SET _Lower=^
 SET GAME=Z:\SteamLibrary\steamapps\common\Noita
 SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe
 SET SAVELOC="%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\"
+SET TOOLWEB=start chrome https://www.noitool.com/ 
 SET Seed=
 :menu_Main
 cls
 ECHO !_Logo!
 ECHO !_Title!
 ECHO !_Main!
-choice /n /c:123456 >nul
-if errorlevel ==6 goto Quit 				:: Quit
-if errorlevel ==5 goto PLAY 				:: Playgame
-if errorlevel ==4 goto menu_Settings 		:: Settings
-if errorlevel ==3 goto OpenSave 			:: Open save Folder
-if errorlevel ==2 goto menu_CustomSeed 		:: Custom Seed Start
-if errorlevel ==1 goto menu_BackupRestore 	:: Backup and Restore
+choice /n /c:1234567 >nul
+if errorlevel ==7 goto Quit 					:: Quit
+if errorlevel ==6 goto PLAY 					:: Playgame
+if errorlevel ==4 !TOOLWEB! & goto menu_Main	:: Noitatool.com this site allows you to check seeds, you can change this if you wish.
+if errorlevel ==5 goto menu_Settings 			:: Settings
+if errorlevel ==3 goto OpenSave 				:: Open save Folder
+if errorlevel ==2 goto menu_CustomSeed 			:: Custom Seed Start
+if errorlevel ==1 goto menu_BackupRestore 		:: Backup and Restore
 goto menu_Main
 :menu_BackupRestore
 cls
