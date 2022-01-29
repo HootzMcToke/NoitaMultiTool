@@ -1,48 +1,10 @@
-echo off
+ECHO off
 mode con:cols=80 lines=50
-setlocal EnableDelayedExpansion
-setlocal enableextensions
-set title=                บ  Noita Tool by HootzMcToke Version 3    บ
-set LAST=                บ      Build time %~t0     บ
-title %title%
-SET BOXTOP=		ษอออออออออออออออออออออออออออออออออออออออออป
-SET SELECT=		บ         Select an option below          บ
-SET BOXMID=		ฬอออออออออออออออออออออออออออออออออออออออออน
-SET LM=^
-		บ             5. Main Menu                บ                       ^
-		บ             6. Play game                บ                       ^
-		บ             7. Quit                     บ                       ^
-		ศอออออออออออออออออออออออออออออออออออออออออผ                                
-set MM=^
-                บ             1. Backup a save            บ                     ^
-                บ             2. Restore a save           บ                     ^
-                บ             3. Tools                    บ                     ^
-                บ             4. Custom Seed Start        บ
-set BKM=^
-                บ             1. Backup to Slot 1         บ                     ^
-                บ             2. Backup to Slot 2         บ                     ^
-                บ             3. Backup to Slot 3         บ
-set RESTM=^
-                บ             1. Restore From Slot 1      บ                     ^
-                บ             2. Restore From Slot 2      บ                     ^
-                บ             3. Restore From Slot 3      บ
-set DELM=^
-                บ             1. Delete Save 001          บ                     ^
-                บ             2. Delete Save 002          บ                     ^
-                บ             3. Delete Save 003          บ                     ^
-                บ             4. Delete All Backups       บ                     
-set TOOLS=^
-                บ             1. Delete Saves             บ                     ^
-                บ             2. Settings                 บ                     ^
-                บ             3. Open Tool Location       บ
-set CS=^
-                บ             1. Enter Seed               บ                     ^
-                บ             2. Play Game (No Change)    บ                     ^
-                บ             3. Main Menu                บ                     ^
-                บ             4. Quit                     บ                     ^
-		        ศอออออออออออออออออออออออออออออออออออออออออผ			
-SET SAVLOC=                บ             4. Open Save Location       บ
-set logo=^
+SETlocal EnableDelayedExpansion
+SETlocal enableextensions
+title Noita Tool by HootzMcToke Version 3.5
+:: Menu Components are below
+SET _Logo=^
 
  [31m    ฐฒ     ฒฒฐ            [33m                [31m       [33m               [31m               ^
  [31m   ฒฒฒฒฒฒ  ฒฒฒฒฒฒ         [33m                [31m       [33m               [31m               ^
@@ -67,46 +29,119 @@ set logo=^
  [31m ฒฒฒฒฒฒฒฒฒฒ      ฒฒฒฒฒฒฒฒ [33m       ฒฒ       [31mฒฒฒฒฒฒฒฒ[33m ฒฒฒฒฒฒฒฒ [31m     ฒ     ฒฒฒฒฒฒ  ^
  [31m               ฒฒฒฒฒฒ     [33m                [31m       [33m            [31m					 ^
 
-[43mÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ[0m						 ^																
-:MAINMENU
+[43mÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ[0m						 ^	
+SET _Title=^
+            ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป            ^
+            บ        Noita Tool by HootzMcToke Version 3.5         บ            ^
+            บ           Build time %~t0             บ            ^
+            บ                Select an option below                บ            ^
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            
+SET _Main=^
+            บ                 1. Backup and Restore                บ            ^
+            บ                 2. Custom Seed Start                 บ            ^
+            บ                 3. Open Save Folder                  บ            ^
+            บ                 4. Settings                          บ            ^
+            บ                 5. Play Game                         บ            ^
+            บ                 6. Quit                              บ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ            
+SET _BKREST=^
+            บ                 1. Backup Save                       บ            ^
+            บ                 2. Restore Save                      บ            ^
+            บ                 3. Open Save Folder                  บ            ^
+            บ                 4. Main Menu                         บ            ^
+            บ                 5. Play Game                         บ            ^
+            บ                 6. Quit                              บ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ            
+SET _Backup=^
+            บ                 1. Backup to slot 1                  บ            ^
+            บ                 2. Backup to slot 2                  บ            ^
+            บ                 3. Backup to slot 3                  บ            ^
+            บ                 4. Delete saves                      บ            
+SET _Restore=^
+            บ                 1. Restore slot 1                    บ            ^
+            บ                 2. Restore slot 2                    บ            ^
+            บ                 3. Restore slot 3                    บ            ^
+            บ                 4. Delete saves                      บ            
+SET _Delete=^
+            บ                 1. Delete slot 1                     บ            ^
+            บ                 2. Delete slot 2                     บ            ^
+            บ                 3. Delete slot 3                     บ            ^
+            บ                 4. Delete all                        บ            
+SET _Settings=^
+            บ               1. Delete Saves                        บ            ^
+            บ               2. Open Install Folder                 บ            ^
+            บ               3. Open Save Folder                    บ            ^
+            บ               4. Open Tool Folder                    บ            ^
+            บ               5. Main Menu                           บ            ^
+            บ               6. Quit                                บ            ^
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
+            บ*To open install folder you must set the GAME variableบ            ^
+            บcorrectly, this is located at the top of this script  บ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ						
+SET _Seed=^
+            บ               1. Enter Seed                          บ            ^
+            บ               2. Play Game (No Seed)                 บ            ^
+            บ               3. Main Menu                           บ            ^
+            บ               4. Quit                                บ            ^
+            ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
+            บ*"Enter Seed" launches the game with current set seed บ            ^
+            บ*This will only work if the SET=GAME is correct       บ            ^
+            บ*You need to start a new game for the seed to change  บ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ 
+		
+SET _Lower=^
+            บ                 5. Open save folder                  บ            ^
+            บ                 6. Play game                         บ            ^
+            บ                 7. Main menu                         บ            ^
+            บ                 8. Quit                              บ            ^
+            ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ			
+:VAR
+SET GAME=Z:\SteamLibrary\steamapps\common\Noita
+SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe 
+SET SAVELOC="%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\"
+SET Seed=
+:menu_Main
 cls
-ECHO !logo!
-ECHO !BOXTOP!
-ECHO !title!
-ECHO !LAST!
-ECHO !SELECT!
-ECHO !BOXMID!
-ECHO !MM!
-ECHO !LM!
-choice /n /c:1234567 >nul
-if errorlevel ==7 goto close
-if errorlevel ==6 goto playnoita
-if errorlevel ==5 goto MAINMENU
-if errorlevel ==4 goto SEEDSTART
-if errorlevel ==3 goto TOOLS
-if errorlevel ==2 goto REST
-if errorlevel ==1 goto BACKUP
-goto MAINMENU
-:BACKUP
+ECHO !_Logo!
+ECHO !_Title!
+ECHO !_Main!
+choice /n /c:123456 >nul
+if errorlevel ==6 goto Quit 				:: Quit
+if errorlevel ==5 goto PLAY 				:: Playgame
+if errorlevel ==4 goto menu_Settings 		:: Settings
+if errorlevel ==3 goto OpenSave 			:: Open save Folder
+if errorlevel ==2 goto menu_CustomSeed 		:: Custom Seed Start
+if errorlevel ==1 goto menu_BackupRestore 	:: Backup and Restore
+goto menu_Main
+:menu_BackupRestore
 cls
-ECHO !logo!
-ECHO !BOXTOP!
-ECHO !title!
-ECHO !LAST!
-ECHO !SELECT!
-ECHO !BOXMID!
-ECHO !BKM!
-ECHO !SAVLOC!
-ECHO !LM!
-CHOICE /N /C:1234567 >NUL
-if errorlevel ==7 goto close
-if errorlevel ==6 goto playnoita
-if errorlevel ==5 goto MAINMENU
-IF ERRORLEVEL ==4 GOTO opensave
-IF ERRORLEVEL ==3 GOTO B003
-IF ERRORLEVEL ==2 GOTO B002
-IF ERRORLEVEL ==1 GOTO B001
-GOTO BACKUP
+ECHO !_Logo!
+ECHO !_Title!
+ECHO !_BKREST!
+choice /n /c:123456 >nul
+if errorlevel ==6 goto Quit :: Quit
+if errorlevel ==5 goto PLAY :: Play Game
+if errorlevel ==4 goto menu_Main :: Main Menu
+if errorlevel ==3 goto OpenSave :: Open Save Folder
+if errorlevel ==2 goto menu_Restore :: Restore Menu
+if errorlevel ==1 goto menu_Backup :: Backup Menu
+goto menu_BackupRestore
+:menu_Backup
+cls
+ECHO !_Logo!
+ECHO !_Title!
+ECHO !_Backup!
+ECHO !_Lower!
+CHOICE /N /C:12345678 >NUL
+IF ERRORLEVEL ==8 GOTO Quit :: Quit 
+IF ERRORLEVEL ==7 GOTO menu_Main
+IF ERRORLEVEL ==6 GOTO Playgame :: Play game
+IF ERRORLEVEL ==5 GOTO OpenSave :: Open Save Folder
+IF ERRORLEVEL ==4 GOTO menu_Delete :: Delete Menu
+IF ERRORLEVEL ==3 GOTO B003 :: Backup Slot 3
+IF ERRORLEVEL ==2 GOTO B002 :: Backup Slot 2
+IF ERRORLEVEL ==1 GOTO B001 :: Backup Slot 1
+GOTO menu_Backup
 :B001
 cls
 ECHO Backing Up Save...
@@ -114,7 +149,7 @@ if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\" mkdir "
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00A
 pause
-GOTO BACKUP
+GOTO menu_Backup
 :B002
 cls
 ECHO Backing Up Save...
@@ -122,7 +157,7 @@ if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\" mkdir "
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00B
 pause
-GOTO BACKUP
+GOTO menu_Backup
 :B003
 cls
 ECHO Backing Up Save...
@@ -130,45 +165,23 @@ if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00C
 pause
-GOTO BACKUP
-:BALL
+GOTO menu_Backup
+:menu_Restore
 cls
-echo Are you sure you wish to overwrite all slots with current game data?(Y/N)?
-CHOICE /N /C NY >NUL
-IF ERRORLEVEL 2 GOTO BALL0
-IF ERRORLEVEL 1 GOTO BACKUP
-goto BACKUP
-:BALL0
-cls
-ECHO Overwriting all Slots with current Game Save Data
-if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\"
-robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /e /xd "stats" "persistent" >NUL
-if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\"
-robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /e /xd "stats" "persistent" >NUL
-if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\"
-robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" "persistent" >NUL
-ECHO Overwrite Complete - All Slots are based on Last Game Save!
-pause 
-GOTO BACKUP
-:REST
-cls
-ECHO !logo!
-ECHO !BOXTOP!
-ECHO !title!
-ECHO !LAST!
-ECHO !SELECT!
-ECHO !BOXMID!
-ECHO !RESTM!
-ECHO !SAVLOC!
-ECHO !LM!
-CHOICE /N /C:1234567 >NUL
-if errorlevel ==7 goto close
-if errorlevel ==6 goto playnoita
-if errorlevel ==5 goto MAINMENU
-IF ERRORLEVEL ==4 GOTO opensave
-IF ERRORLEVEL ==3 GOTO R003
-IF ERRORLEVEL ==2 GOTO R002
-IF ERRORLEVEL ==1 GOTO R001
+ECHO !_Logo!
+ECHO !_Title!
+ECHO !_Restore!
+ECHO !_Lower!
+CHOICE /N /C:12345678 >NUL
+if errorlevel ==8 goto Quit         :: Quit
+if errorlevel ==7 goto menu_Main    :: Main Menu
+if errorlevel ==6 goto PLAY         :: Play Game
+IF ERRORLEVEL ==5 GOTO OpenSave     :: Open save Folder
+IF ERRORLEVEL ==4 GOTO menu_Delete  :: Delete Menu
+IF ERRORLEVEL ==3 GOTO R003         :: Restore Slot 3
+IF ERRORLEVEL ==2 GOTO R002			:: Restore Slot 2
+IF ERRORLEVEL ==1 GOTO R001			:: Restore Slot 1
+goto menu_Restore
 :R001
 cls
 ECHO Restoring Save From Slot 1
@@ -187,51 +200,48 @@ ECHO Restoring Save From Slot 3
 robocopy %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\ %USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00 /e >NUL
 ECHO Backup 003 restored!
 GOTO startgame
-:DELMAIN
+:menu_Delete
 cls
-ECHO !logo!
-ECHO !BOXTOP!
-ECHO !title!
-ECHO !LAST!
-ECHO !SELECT!
-ECHO !BOXMID!
-ECHO !DELM!
-ECHO !LM!
-CHOICE /N /C:1234567 >NUL
-if errorlevel ==7 goto close
-if errorlevel ==6 goto playnoita
-if errorlevel ==5 goto MAINMENU
-IF ERRORLEVEL ==4 GOTO RMALL
-IF ERRORLEVEL ==3 GOTO RM003
-IF ERRORLEVEL ==2 GOTO RM002
-IF ERRORLEVEL ==1 GOTO RM001
-GOTO DELMAIN
+ECHO !_Logo!
+ECHO !_Title!
+ECHO !_Delete!
+ECHO !_Lower!
+CHOICE /N /C:12345678 >NUL
+if errorlevel ==8 goto Quit			:: Quit
+if errorlevel ==7 goto menu_Main    :: Main Menu
+if errorlevel ==6 goto PLAY         :: Play Game
+if errorlevel ==5 goto OpenSave     :: Open save Folder
+IF ERRORLEVEL ==4 GOTO RMALL        :: Remove All Saves
+IF ERRORLEVEL ==3 GOTO RM003        :: Delete Slot 3
+IF ERRORLEVEL ==2 GOTO RM002        :: Delete Slot 2
+IF ERRORLEVEL ==1 GOTO RM001        :: Delete Slot 1
+GOTO menu_Delete
 :RM001
 cls
 ECHO Clearing Save Slot 001
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A"
 ECHO Save Slot 001 Empty!
-goto DELMAIN
+pause
+goto menu_Delete
 :RM002
 cls
 ECHO Clearing Save Slot 002
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B"
 ECHO Save Slot 002 Empty!
-goto DELMAIN
+goto menu_Delete
 :RM003
 cls
 ECHO Clearing Save Slot 003
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B"
 ECHO Save Slot 003 Empty!
-goto DELMAIN
-
+goto menu_Delete
 :RMALL
 cls
-echo Are you sure you wish to delete all backup save slots?(Y/N)?
+ECHO Are you sure you wish to delete all backup save slots?(Y/N)?
 CHOICE /N /C NY >NUL
 IF ERRORLEVEL 2 GOTO RMALL1
-IF ERRORLEVEL 1 GOTO DELMAIN
-goto DELMAIN
+IF ERRORLEVEL 1 GOTO menu_Delete
+goto menu_Delete
 :RMALL1
 cls
 ECHO Clearing all backup saves (Current game is untouched)
@@ -240,85 +250,92 @@ rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B"
 rmdir /q/s "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C"
 ECHO All Slots Empty!
 pause
-goto DELMAIN
-:TOOLS
+goto menu_Delete
+:menu_CustomSeed
 cls
-ECHO !logo!
-ECHO !BOXTOP!
-ECHO !title!
-ECHO !LAST!
-ECHO !SELECT!
-ECHO !BOXMID!
-ECHO !TOOLS!
-ECHO !SAVLOC!
-ECHO !LM!
-choice /n /c:1234567 >nul
-if errorlevel ==7 goto close
-if errorlevel ==6 goto playnoita
-if errorlevel ==5 goto MAINMENU
-if errorlevel ==4 goto opensave
-if errorlevel ==3 goto toolloc
-if errorlevel ==2 goto settings
-if errorlevel ==1 goto DELMAIN
-goto MAINMENU
-:SEEDSTART
-cls
-ECHO !logo!
-ECHO !BOXTOP!
-ECHO !title!
-ECHO !LAST!
-ECHO !SELECT!
-ECHO !BOXMID!
-ECHO !CS!
+ECHO !_Logo!
+ECHO !_Title!
+ECHO !_Seed!
 choice /n /c:1234 >nul
-if errorlevel ==4 goto close
-if errorlevel ==3 goto MAINMENU
-if errorlevel ==2 goto playnoita
-if errorlevel ==1 goto seedenter
+if errorlevel ==4 goto Quit			:: Quit
+if errorlevel ==3 goto menu_Main    :: Playgame
+if errorlevel ==2 goto PLAY         :: Settings
+if errorlevel ==1 goto CustomSeed	:: Enter Seed and launch
 GOTO MAINMENU
-:seedenter
-ECHO Comming Soon!
-pause
-goto SEEDSTART
-:settings
-ECHO Comming Soon!
-pause
-goto TOOLS
+:CustomSeed
+cls
+ECHO Enter desired seed:
+SET /p Seed= 
+cls
+echo You have set the seed for next launch to !Seed!
+echo Would you like to launch with current seed? Y/N
+choice /n /c:YN >nul
+if errorlevel ==2 goto menu_Main
+if errorlevel ==1 goto PLAYMAGIC
+:menu_Settings
+cls
+echo !_Logo!
+echo !_Title!
+echo !_Settings!
+choice /n /c:123456 >nul
+if errorlevel ==6 goto Quit			:: Quit
+if errorlevel ==5 goto menu_Main	:: Main Menu
+if errorlevel ==4 goto OpenTool		:: Open Tool Folder
+if errorlevel ==3 goto OpenSave		:: Open Save Folder
+if errorlevel ==2 goto OpenInstall	:: Open Install folder
+if errorlevel ==1 goto menu_Delete	:: Delete Menu
+goto settings
 :startGame
-echo Do you wish to start Noita? [Y/N]:
+ECHO Do you wish to start Noita? [Y/N]:
 CHOICE /N /C YNM >NUL
 IF ERRORLEVEL 3 GOTO MAINMENU
 IF ERRORLEVEL 2 GOTO close
-IF ERRORLEVEL 1 GOTO playnoita
-:playnoita
-ECHO Launching Noita 
-start steam://rungameid/881100
+IF ERRORLEVEL 1 GOTO PLAY
+:PLAY
+ECHO Launching Noita
+start %STEAM% -applaunch 881100 -no_logo_splashes
+GOTO GameMonitor
+:PLAYMAGIC 
+ECHO Deleting old magic.txt
+del %game%\magic.txt
+(
+	echo ^<MagicNumbers
+	echo WORLD_SEED="!seed!"
+	echo _DEBUG_DONT_LOAD_OTHER_MAGIC_NUMBERS="1"
+	echo _DEBUG_DONT_SAVE_MAGIC_NUMBERS="1" ^>
+	echo ^</MagicNumbers^>
+)>"%game%\magic.txt"
+ECHO Launching With Custom Seed
+start %STEAM% -applaunch 881100 -no_logo_splashes -magic_numbers magic.txt
 GOTO GameMonitor
 :GameMonitor
 SETLOCAL EnableExtensions
-set EXE=noita.exe
+SET EXE=noita.exe
 FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto ProcessFound
 goto ProcessNotFound
 :ProcessFound
-echo %EXE% is running
+ECHO %EXE% is running
 goto GameMonitor
-:toolloc
+:OpenTool
 explorer %~dp0
 goto TOOLS
-:opensave
-explorer  "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\"
-goto MAINMENU
+:OpenSave
+explorer  !SAVELOC!
+goto menu_Main
+:OpenInstall
+explorer !GAME!
+goto TOOLS
 :ProcessNotFound
-echo %EXE% is not running
-goto MAINMENU
+ECHO %EXE% is not running
+goto menu_Main
 :quit
 cls
-echo Do you want to quit(Y/N)?
-CHOICE /N /C NY >NUL
+ECHO Do you want to quit(Y/N)?
+CHOICE /N /C NY  >NUL
 IF ERRORLEVEL 2 GOTO close
 IF ERRORLEVEL 1 GOTO MAINMENU
 :close
 cls
-echo See you soon! Press Any Key
-timeout 3 >NUL
-EXIT 
+ECHO See you soon! Press Any Key
+timeout 0 >NUL
+EXIT
