@@ -1,5 +1,5 @@
 ECHO off
-mode con:cols=80 lines=40
+mode con:cols=80 lines=45
 SETlocal EnableDelayedExpansion enableextensions 
 title Noita MultiTool By HootzMcToke
 :: Menu Components are below
@@ -92,10 +92,14 @@ SET _Lower=^
             บ                 8. Quit                              บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ			
 :VAR :: The things located below are the only things you may need to change 
-SET GAME=Z:\SteamLibrary\steamapps\common\Noita
+SET GAME=Z:\SteamLibrary\steamapps\common\Noita\
+:: Change to whatever folder you have noita installed in
 SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe
+:: Change if needed to the location of the Steam.exe
 SET SAVELOC="%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\"
-SET TOOLWEB=start chrome https://www.noitool.com/ 
+:: Should not need to be changed
+SET TOOLWEB=start chrome https://www.noitool.com/
+:: Change to whatever browswer you are using
 SET Seed=
 :menu_Main
 cls
@@ -105,9 +109,9 @@ ECHO !_Main!
 choice /n /c:1234567 >nul
 if errorlevel ==7 goto Quit 					:: Quit
 if errorlevel ==6 goto PLAY 					:: Playgame
+if errorlevel ==5 goto menu_Settings			:: Settings
 if errorlevel ==4 !TOOLWEB! & goto menu_Main	:: Noitatool.com this site allows you to check seeds, you can change this if you wish.
-if errorlevel ==5 goto menu_Settings 			:: Settings
-if errorlevel ==3 goto OpenSave 				:: Open save Folder
+if errorlevel ==3 goto OpenSave					:: Open save Folder
 if errorlevel ==2 goto menu_CustomSeed 			:: Custom Seed Start
 if errorlevel ==1 goto menu_BackupRestore 		:: Backup and Restore
 goto menu_Main
@@ -316,13 +320,13 @@ ECHO %EXE% is running
 goto GameMonitor
 :OpenTool
 explorer %~dp0
-goto TOOLS
+goto menu_Main
 :OpenSave
 explorer  !SAVELOC!
 goto menu_Main
 :OpenInstall
 explorer !GAME!
-goto TOOLS
+goto menu_Main
 :ProcessNotFound
 ECHO %EXE% is not running
 goto menu_Main
@@ -331,7 +335,7 @@ cls
 ECHO Do you want to quit(Y/N)?
 CHOICE /N /C NY  >NUL
 IF ERRORLEVEL 2 GOTO close
-IF ERRORLEVEL 1 GOTO MAINMENU
+IF ERRORLEVEL 1 GOTO menu_Main
 :close
 cls
 ECHO See you soon! Press Any Key
