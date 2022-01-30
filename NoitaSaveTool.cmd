@@ -38,7 +38,7 @@ SET _Main=^
             º                 1. Backup and Restore                º            ^
             º                 2. Custom Seed Start                 º            ^
             º                 3. Open Save Folder                  º            ^
-            º                 4. [1;31m*[0mnoitatool.com[1;31m*[0m                   º            ^
+            º                 4. [1;31m*[0mnoittool.com[1;31m*[0m                   º            ^
             º                 5. Settings                          º            ^
             º                 6. Play Game                         º            ^
             º                 7. Quit                              º            ^
