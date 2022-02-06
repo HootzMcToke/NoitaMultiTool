@@ -79,7 +79,8 @@ SET _Settings=^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ						
 SET _Seed=^
             บ                 1. Enter Seed                        บ            ^
-            บ                 2. Play Game (No Seed)               บ            ^
+            บ                 2. Launch with current magic.txt     บ            ^
+            บ                 3. Launch with default settings      บ            ^
             บ                 3. Main Menu                         บ            ^
             บ                 4. Quit                              บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
@@ -258,10 +259,11 @@ cls
 ECHO !_Logo!
 ECHO !_Title!
 ECHO !_Seed!
-choice /n /c:1234 >nul
-if errorlevel ==4 goto Quit			:: Quit
-if errorlevel ==3 goto menu_Main    :: Playgame
-if errorlevel ==2 goto PLAY         :: Settings
+choice /n /c:12345 >nul
+if errorlevel ==5 goto Quit			:: Quit
+if errorlevel ==4 goto menu_Main    :: Playgame
+if errorlevel ==3 goto PLAY         :: Settings
+if errorlevel ==2 goto PLAYMAGIC	:: Launch with last seed
 if errorlevel ==1 goto CustomSeed	:: Enter Seed and launch
 GOTO MAINMENU
 :CustomSeed
@@ -269,11 +271,26 @@ cls
 ECHO Enter desired seed:
 SET /p Seed= 
 cls
-echo You have set the seed for next launch to !Seed!
-echo Would you like to launch with current seed? Y/N
-choice /n /c:YN >nul
-if errorlevel ==2 goto menu_Main
-if errorlevel ==1 goto PLAYMAGIC
+ECHO Seed Set to -- !Seed!
+ECHO Deleting old magic.txt
+del %game%\magic.txt
+(
+	echo ^<MagicNumbers
+	echo WORLD_SEED="!seed!"
+	echo _DEBUG_DONT_LOAD_OTHER_MAGIC_NUMBERS="1"
+	echo _DEBUG_DONT_SAVE_MAGIC_NUMBERS="1" ^>
+	echo ^</MagicNumbers^>
+)>"%game%\magic.txt"
+ECHO Launching With the Seed !seed!
+start %STEAM% -applaunch 881100 -no_logo_splashes -magic_numbers magic.txt
+timeout /t 5 >nul
+GOTO GameMonitor
+:PLAYMAGIC
+cls
+ECHO Launching with magic_numbers enabled
+start %STEAM% -applaunch 881100 -no_logo_splashes -magic_numbers magic.txt
+timeout /t 5 >nul
+GOTO GameMonitor
 :menu_Settings
 cls
 echo !_Logo!
@@ -296,19 +313,6 @@ IF ERRORLEVEL 1 GOTO PLAY
 :PLAY
 ECHO Launching Noita
 start %STEAM% -applaunch 881100 -no_logo_splashes
-GOTO GameMonitor
-:PLAYMAGIC 
-ECHO Deleting old magic.txt
-del %game%\magic.txt
-(
-	echo ^<MagicNumbers
-	echo WORLD_SEED="!seed!"
-	echo _DEBUG_DONT_LOAD_OTHER_MAGIC_NUMBERS="1"
-	echo _DEBUG_DONT_SAVE_MAGIC_NUMBERS="1" ^>
-	echo ^</MagicNumbers^>
-)>"%game%\magic.txt"
-ECHO Launching With Custom Seed
-start %STEAM% -applaunch 881100 -no_logo_splashes -magic_numbers magic.txt
 GOTO GameMonitor
 :GameMonitor
 SETLOCAL EnableExtensions
