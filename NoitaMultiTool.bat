@@ -138,7 +138,7 @@ ECHO !_Lower!
 CHOICE /N /C:12345678 >NUL
 IF ERRORLEVEL ==8 GOTO Quit :: Quit 
 IF ERRORLEVEL ==7 GOTO menu_Main
-IF ERRORLEVEL ==6 GOTO Playgame :: Play game
+IF ERRORLEVEL ==6 GOTO PLAY :: Play game
 IF ERRORLEVEL ==5 GOTO OpenSave :: Open Save Folder
 IF ERRORLEVEL ==4 GOTO menu_Delete :: Delete Menu
 IF ERRORLEVEL ==3 GOTO B003 :: Backup Slot 3
@@ -151,7 +151,6 @@ ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\"
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00A
-
 GOTO startgame
 :B002
 cls
@@ -159,7 +158,6 @@ ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\"
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00B
-
 GOTO startgame
 :B003
 cls
@@ -167,7 +165,6 @@ ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\"
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00C
-
 GOTO startgame
 :menu_Restore
 cls
