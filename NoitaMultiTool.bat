@@ -151,24 +151,24 @@ ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A\"
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00A" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00A
-pause
-GOTO menu_Backup
+
+GOTO startgame
 :B002
 cls
 ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B\"
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00B" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00B
-pause
-GOTO menu_Backup
+
+GOTO startgame
 :B003
 cls
 ECHO Backing Up Save...
 if not exist "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\" mkdir "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C\"
 robocopy "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00" "%USERPROFILE%\AppData\LocalLow\Nolla_Games_Noita\save00C" /e /xd "stats" "persistent" >NUL
 ECHO Backup Complete - Located in Folder save00C
-pause
-GOTO menu_Backup
+
+GOTO startgame
 :menu_Restore
 cls
 ECHO !_Logo!
