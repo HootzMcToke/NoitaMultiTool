@@ -37,11 +37,10 @@ SET _Title=^
 SET _Main=^
             บ                 1. Backup and Restore                บ            ^
             บ                 2. Custom Seed Start                 บ            ^
-            บ                 3. Open Save Folder                  บ            ^
-            บ                 4. [1;31m*[0mnoitool.com[1;31m*[0m                     บ            ^
-            บ                 5. Settings                          บ            ^
-            บ                 6. Play Game                         บ            ^
-            บ                 7. Quit                              บ            ^
+            บ                 3. [1;31m*[0mnoitool.com[1;31m*[0m                     บ            ^
+            บ                 4. Settings / Tools                  บ            ^
+            บ                 5. Play Game                         บ            ^
+            บ                 6. Quit                              บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
             บ        [1;31m*[0mThis site allows you to check seeds[1;31m*[0m         บ            ^
             บ      [1;31m*[0mThis is not my website, its just useful[1;31m*[0m       บ            ^
@@ -79,10 +78,10 @@ SET _Settings=^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ						
 SET _Seed=^
             บ                 1. Enter Seed                        บ            ^
-            บ                 2. Launch with current magic.txt     บ            ^
+            บ                 2. Launch with last seed             บ            ^
             บ                 3. Launch with default settings      บ            ^
-            บ                 3. Main Menu                         บ            ^
-            บ                 4. Quit                              บ            ^
+            บ                 4. Main Menu                         บ            ^
+            บ                 5. Quit                              บ            ^
             ฬออออออออออออออออออออออออออออออออออออออออออออออออออออออน            ^
             บ[1;31m*[0m          [1;4;91mStart a new game for custom seed[0m          [1;31m*[0mบ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
@@ -93,7 +92,7 @@ SET _Lower=^
             บ                 8. Quit                              บ            ^
             ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ			
 :VAR :: The things located below are the only things you may need to change 
-SET GAME=Z:\SteamLibrary\steamapps\common\Noita\
+SET GAME=C:\"Program Files (x86)"\Steam\steamapps\common\Noita
 :: Change to whatever folder you have noita installed in
 SET STEAM=C:\"Program Files (x86)"\Steam\steam.exe
 :: Change if needed to the location of the Steam.exe
@@ -108,11 +107,10 @@ ECHO !_Logo!
 ECHO !_Title!
 ECHO !_Main!
 choice /n /c:1234567 >nul
-if errorlevel ==7 goto Quit 					:: Quit
-if errorlevel ==6 goto PLAY 					:: Playgame
-if errorlevel ==5 goto menu_Settings			:: Settings
-if errorlevel ==4 !TOOLWEB! & goto menu_Main	:: Noitatool.com this site allows you to check seeds, you can change this if you wish.
-if errorlevel ==3 goto OpenSave					:: Open save Folder
+if errorlevel ==6 goto Quit 					:: Quit
+if errorlevel ==5 goto PLAY 					:: Playgame
+if errorlevel ==4 goto menu_Settings			:: Settings
+if errorlevel ==3 !TOOLWEB! & goto menu_Main	:: Noitatool.com this site allows you to check seeds, you can change this if you wish.
 if errorlevel ==2 goto menu_CustomSeed 			:: Custom Seed Start
 if errorlevel ==1 goto menu_BackupRestore 		:: Backup and Restore
 goto menu_Main
@@ -258,8 +256,8 @@ ECHO !_Title!
 ECHO !_Seed!
 choice /n /c:12345 >nul
 if errorlevel ==5 goto Quit			:: Quit
-if errorlevel ==4 goto menu_Main    :: Playgame
-if errorlevel ==3 goto PLAY         :: Settings
+if errorlevel ==4 goto menu_Main    :: Main Menu
+if errorlevel ==3 goto PLAY         :: Play Game
 if errorlevel ==2 goto PLAYMAGIC	:: Launch with last seed
 if errorlevel ==1 goto CustomSeed	:: Enter Seed and launch
 GOTO MAINMENU
@@ -320,18 +318,18 @@ goto menu_Main
 :::ProcessFound
 ::ECHO %EXE% is running
 ::goto GameMonitor
+:::ProcessNotFound
+::ECHO %EXE% is not running
+::goto menu_Main
 :OpenTool
 explorer %~dp0
-goto menu_Main
+goto menu_Settings
 :OpenSave
 explorer  !SAVELOC!
-goto menu_Main
+goto menu_Settings
 :OpenInstall
 explorer !GAME!
-goto menu_Main
-:ProcessNotFound
-ECHO %EXE% is not running
-goto menu_Main
+goto menu_Settings
 :quit
 cls
 ECHO Do you want to quit(Y/N)?
