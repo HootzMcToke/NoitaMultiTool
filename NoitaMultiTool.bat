@@ -312,13 +312,14 @@ ECHO Launching Noita
 start %STEAM% -applaunch 881100 -no_logo_splashes
 GOTO GameMonitor
 :GameMonitor
-SETLOCAL EnableExtensions
-SET EXE=noita.exe
-FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto ProcessFound
-goto ProcessNotFound
-:ProcessFound
-ECHO %EXE% is running
-goto GameMonitor
+goto menu_Main
+::SETLOCAL EnableExtensions
+::SET EXE=noita.exe
+::FOR /F %%x IN ('tasklist /NH /FI "IMAGENAME eq %EXE%"') DO IF %%x == %EXE% goto ProcessFound
+::goto ProcessNotFound
+:::ProcessFound
+::ECHO %EXE% is running
+::goto GameMonitor
 :OpenTool
 explorer %~dp0
 goto menu_Main
